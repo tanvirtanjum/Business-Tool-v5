@@ -4,7 +4,8 @@
 
 <head>
 	<title>Registration</title>
-	<link rel="stylesheet" type="text/css" href="assets/styles/signup.css">
+	<!--<link rel="stylesheet" type="text/css" href="assets/styles/signup.css">-->
+	<link rel="stylesheet" type="text/css" href="{{ URL::to('css/signup.css') }}">
 	<script src="assets/js/validSignup.js"></script>
 </head>
 

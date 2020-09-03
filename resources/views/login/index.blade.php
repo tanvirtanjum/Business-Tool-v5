@@ -4,13 +4,14 @@
 
 <head>
 	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="assets/styles/login.css">
+	<!--<link rel="stylesheet" type="text/css" href="assets/styles/login.css">-->
+	<link rel="stylesheet" type="text/css" href="{{ URL::to('css/login.css') }}">
 	<script src="assets/js/validLogin.js"></script>
 </head>
 
 <body>
 	<div class="loginbox">
-		<img src="assets/images/user.png" class="avatar">
+		<img src="{{ URL::to('css/images/user.png') }}" class="avatar">
 		<h1>Login Here</h1>
 		<form method="post" name="login" onsubmit="return(validate());">
 			<p>Username</p>

@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="assets/styles/homepage.css">
+    <!--<link rel="stylesheet" type="text/css" href="../styles/homepage.css">-->
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/homepage.css') }}">
+
   </head>
 
   <body>
     <form method='post'>
       <div class="main">
-          <img src="assets/images/logo.png" alt="">
-          <input type="submit" name="signup" id="signup" value="Signup">
-          <input type="submit" name="login" id="login" value="Login">
+          <img src="{{ URL::to('css/images/logo.png') }}" alt="" style= "width:100px; height: 100px">
+          <input type="submit" name="Signup" id="signup" value="Signup">
+          <input type="submit" name="Login" id="login" value="Login">
       </div>
 
       <div class="p">
-          <p>Welcome <br>To Business Tools</p>
+          <p>Welcome <br>To Business Tool</p>
       </div>
     </form>
   </body>
