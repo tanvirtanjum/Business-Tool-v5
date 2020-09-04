@@ -5,7 +5,7 @@
 <head>
 	<title>Registration</title>
 	<!--<link rel="stylesheet" type="text/css" href="assets/styles/signup.css">-->
-	<link rel="stylesheet" type="text/css" href="{{ URL::to('css/signup.css') }}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/signup.css')); ?>">
 	<script src="assets/js/validSignup.js"></script>
 </head>
 
@@ -23,9 +23,10 @@
 			<input type="email" name="email" placeholder="Email" value="">
 			<input type="number" name="mobilenumber" placeholder="Mobile Number" value="">
 			<input type="submit" name="REGISTER" value="REGISTER"><br>
-			<p><b>Or Log In <a href="{{route('login.index')}}">here</a></b></p>
+			<p><b>Or Log In <a href="<?php echo e(route('login.index')); ?>">here</a></b></p>
 		</form>
 	</div>
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\ATP3\Final Project\Business Tool v5\trunk\resources\views/signup/index.blade.php ENDPATH**/ ?>

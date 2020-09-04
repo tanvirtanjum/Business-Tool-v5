@@ -4,7 +4,7 @@
 <head>
 	<title>Reset Password</title>
 	<!--<link rel="stylesheet" type="text/css" href="assets/styles/signup.css">-->
-	<link rel="stylesheet" type="text/css" href="{{ URL::to('css/signup.css') }}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/signup.css')); ?>">
 	<script src="assets/js/validSignup.js"></script>
 </head>
 
@@ -27,3 +27,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\ATP3\Final Project\Business Tool v5\trunk\resources\views/resetPassword/index.blade.php ENDPATH**/ ?>

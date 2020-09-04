@@ -18,6 +18,9 @@ Route::get('/', function()
 Route::get('/home', 'HomeController@index')->name('home.index');
 Route::post('/home', 'HomeController@goto');
 
+Route::get('/login', 'LoginController@index')->name('login.index');
+Route::post('/login', 'LoginController@login_request');
+
 Route::get('/signup', 'SignupController@index')->name('signup.index');
 
-Route::get('/login', 'LoginController@index')->name('login.index');
+Route::get('/recover', 'ResetPasswordController@index')->name('recover.index');
