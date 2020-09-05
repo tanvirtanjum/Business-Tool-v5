@@ -31,3 +31,6 @@ Route::get('/adminDash', 'AdminDashController@index')->name('adminDash.index');
 
 //MANAGER Session Validation Required
 Route::get('/managerDash', 'ManagerDashController@index')->name('managerDash.index');
+
+//SALESMAN Session Validation Required
+Route::get('/salesmanDash', 'SalesmanDashController@index')->name('salesmanDash.index');

@@ -36,8 +36,8 @@ class LoginController extends Controller
 
         if(session()->get('SID') == 3)
         {
-          //REQUIRE SALESMAN_DASH VIEW
-          return redirect()->route('recover.index');
+          //REQUIRE SALESMAN_DASH VIEW (DONE)
+          return redirect()->route('salesmanDash.index');
         }
 
         if(session()->get('SID') == 4)
