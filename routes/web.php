@@ -26,6 +26,9 @@ Route::get('/signup', 'SignupController@index')->name('signup.index');
 
 Route::get('/recover', 'ResetPasswordController@index')->name('recover.index');
 
+//HAS Session Validation Required
+Route::get('/logout', 'LogoutController@execute')->name('logout.execute');
+
 //ADMIN Session Validation Required
 Route::get('/adminDash', 'AdminDashController@index')->name('adminDash.index');
 

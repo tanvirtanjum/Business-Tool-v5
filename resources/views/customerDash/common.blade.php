@@ -22,7 +22,7 @@
 						<ul>
 							<li><a href="/aboutUser"><i class="fas fa-address-card"></i>About {{session('LID')}}</a></li>
 							<li><a href="/changepassword" target='_blank'><i class="fas fa-key"></i>Change Password</a></li>
-							<li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+							<li><a href="{{route('logout.execute')}}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
 						</ul>
 					</li>
 					<li><a href="/customerDash/orderProducts"><i class="fab fa-product-hunt"></i>Order Products</a></li>

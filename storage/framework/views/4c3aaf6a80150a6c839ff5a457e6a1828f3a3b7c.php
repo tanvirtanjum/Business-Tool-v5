@@ -22,7 +22,7 @@
 						<ul>
 							<li><a href="/aboutUser"><i class="fas fa-address-card"></i>About <?php echo e(session('LID')); ?></a></li>
 							<li><a href="/changepassword"><i class="fas fa-key"></i>Change Password</a></li>
-							<li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+							<li><a href="<?php echo e(route('logout.execute')); ?>"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fas fa-tasks"></i>Management<span class="sub_arrow"></span></a>
