@@ -42,8 +42,8 @@ class LoginController extends Controller
 
         if(session()->get('SID') == 4)
         {
-          //REQUIRE DEVIVERYMAN_DASH VIEW
-          return redirect()->route('login.index');
+          //REQUIRE DEVIVERYMAN_DASH VIEW (DONE)
+          return redirect()->route('deliveryDash.index');
         }
 
         if(session()->get('SID') == 5)

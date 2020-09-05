@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<!--<title>Delivery-man Dashboard</title>-->
 		<!--<link rel="stylesheet" type="text/css" href="assets/styles/common.css">-->
-		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
+		<link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
 		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 	</head>
 	<body>
@@ -20,7 +20,7 @@
 				<ul class="pop">
 					<li><a><i class="fas fa-user-circle"></i>Profile<span class="sub_arrow"></span></a>
 						<ul>
-							<li><a href="/aboutUser"><i class="fas fa-address-card"></i>About {{session('LID')}}</a></li>
+							<li><a href="/aboutUser"><i class="fas fa-address-card"></i>About <?php echo e(session('LID')); ?></a></li>
 							<li><a href="/changepassword" target='_blank'><i class="fas fa-key"></i>Change Password</a></li>
 							<li><a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
 						</ul>
@@ -40,3 +40,4 @@
 		</form>
 	</body>
 </html>
+<?php /**PATH C:\xampp\htdocs\ATP3\Final Project\Business Tool v5\trunk\resources\views/DeliverymanDash/common.blade.php ENDPATH**/ ?>
