@@ -24,14 +24,14 @@ class LoginController extends Controller
 
         if(session()->get('SID') == 1)
         {
-          //REQUIRE ADMIN_DASH VIEW
+          //REQUIRE ADMIN_DASH VIEW (DONE)
           return redirect()->route('adminDash.index');
         }
 
         if(session()->get('SID') == 2)
         {
-          //REQUIRE MANAGER_DASH VIEW
-          return redirect()->route('home.index');
+          //REQUIRE MANAGER_DASH VIEW (DONE)
+          return redirect()->route('managerDash.index');
         }
 
         if(session()->get('SID') == 3)

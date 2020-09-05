@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="pro">
-		<h1>WelCome to Admin Page</h1>
+		<h1>Welcome to AdminDash Page</h1>
 	</div>
 </body>
 </html>
