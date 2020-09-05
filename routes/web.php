@@ -37,3 +37,6 @@ Route::get('/salesmanDash', 'SalesmanDashController@index')->name('salesmanDash.
 
 //DELIVERYMAN Session Validation Required
 Route::get('/deliveryDash', 'DeliverymanDashController@index')->name('deliveryDash.index');
+
+//CUSTOMER Session Validation Required
+Route::get('/customerDash', 'CustomerDashController@index')->name('customerDash.index');

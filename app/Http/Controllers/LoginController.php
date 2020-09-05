@@ -48,8 +48,8 @@ class LoginController extends Controller
 
         if(session()->get('SID') == 5)
         {
-          //REQUIRE CUSTOMER_DASH VIEW
-          return redirect()->route('home.index');
+          //REQUIRE CUSTOMER_DASH VIEW (DONE)
+          return redirect()->route('customerDash.index');
         }
 
         if(session()->get('SID') == 0)
@@ -61,7 +61,7 @@ class LoginController extends Controller
 
       else
       {
-        $request->session()->flash('_alert', 'INVALID USER');
+        $request->session()->flash('_alert', 'INVALID USERNAME/PASSWORD');
         return redirect()->route('login.index');
       }
     }
