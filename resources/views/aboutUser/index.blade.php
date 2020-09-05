@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/about.css">
+    <!--<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/about.css">-->
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/about.css') }}">
 </head>
 <body>
   <div class="box">

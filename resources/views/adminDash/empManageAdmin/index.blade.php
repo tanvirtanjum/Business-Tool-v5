@@ -1,5 +1,4 @@
-<!-- sidebar Included -->
-
+@include('adminDash.common')
 
 <!DOCTYPE html>
 <html>
@@ -7,8 +6,10 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Manage Employees</title>
-      <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-      <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
+      <!--<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
+      <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">-->
+      <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ URL::to('css/manage.css') }}">
       <script src="assets/js/empvalid.js"></script>
   </head>
 

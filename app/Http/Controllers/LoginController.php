@@ -25,7 +25,7 @@ class LoginController extends Controller
         if(session()->get('SID') == 1)
         {
           //REQUIRE ADMIN_DASH VIEW
-          return redirect()->route('signup.index');
+          return redirect()->route('adminDash.index');
         }
 
         if(session()->get('SID') == 2)

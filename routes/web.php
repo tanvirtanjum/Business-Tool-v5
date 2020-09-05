@@ -15,6 +15,7 @@ Route::get('/', function()
   return redirect()->route('home.index');
 });
 
+//Session Validation Not Required
 Route::get('/home', 'HomeController@index')->name('home.index');
 Route::post('/home', 'HomeController@goto');
 
@@ -24,3 +25,6 @@ Route::post('/login', 'LoginController@login_request');
 Route::get('/signup', 'SignupController@index')->name('signup.index');
 
 Route::get('/recover', 'ResetPasswordController@index')->name('recover.index');
+
+//ADMIN Session Validation Not Required
+Route::get('/adminDash', 'AdminDashController@index')->name('adminDash.index');

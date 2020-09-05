@@ -1,4 +1,4 @@
-
+@include('adminDash.common')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Notice</title>
-    <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/notice.css">
+    <!--<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/notice.css">-->
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/notice.css') }}">
 </head>
 <body>
     <div class="table">
