@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Session Validation Not Required
 Route::get('/', function()
 {
   return redirect()->route('home.index');
@@ -28,6 +30,9 @@ Route::get('/recover', 'ResetPasswordController@index')->name('recover.index');
 
 //HAS Session Validation Required
 Route::get('/logout', 'LogoutController@execute')->name('logout.execute');
+Route::get('/aboutUser', 'AboutUserController@index')->name('aboutUser.index');
+Route::get('/aboutUser/editProfile', 'AboutUserController@edit')->name('aboutUser.editProfile');
+Route::post('/aboutUser/editProfile', 'AboutUserController@saveEdit');
 
 //ADMIN Session Validation Required
 Route::get('/adminDash', 'AdminDashController@index')->name('adminDash.index');
