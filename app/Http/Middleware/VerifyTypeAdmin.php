@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class VerifySession
+class VerifyTypeAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,13 +15,13 @@ class VerifySession
      */
     public function handle($request, Closure $next)
     {
-      if($request->session()->has('LID') && $request->session()->has('SID'))
-      {
-  		    return $next($request);
-      }
-      else
-      {
-          return redirect()->route('login.justify');
-      }
+        if($request->session()->get('SID') == 1)
+        {
+            return $next($request);
+        }
+        else
+        {
+            return redirect()->route('login.justify');
+        }
     }
 }
