@@ -10,13 +10,14 @@ class LoginController extends Controller
 
     function index(Request $request)
     {
+
       if($request->session()->has('LID') && $request->session()->has('SID'))
       {
-        return redirect()->route('login.index');
+        return redirect()->route('login.justify');
       }
       else
       {
-        return view('login.justify');
+        return view('login.index');
       }
     }
 
