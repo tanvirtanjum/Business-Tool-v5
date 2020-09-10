@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
 
-    function index()
+    function index(Request $request)
     {
-    	return view('login.index');
+      if($request->session()->has('LID') && $request->session()->has('SID'))
+      {
+        return redirect()->route('login.index');
+      }
+      else
+      {
+        return view('login.justify');
+      }
     }
 
     function check(Request $request)
@@ -55,7 +62,7 @@ class LoginController extends Controller
       }
       else
       {
-          return redirect()->route('login.index');
+        return redirect()->route('login.index');
       }
     }
 
