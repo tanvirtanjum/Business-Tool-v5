@@ -35,6 +35,7 @@ Route::middleware(['SESS'])->group(function()
     Route::get('/aboutUser', 'AboutUserController@index')->name('aboutUser.index');
     Route::get('/aboutUser/editProfile', 'AboutUserController@edit')->name('aboutUser.editProfile');
     Route::post('/aboutUser/editProfile', 'AboutUserController@saveEdit');
+    
 
     Route::get('/logout', 'LogoutController@execute')->name('logout.execute');
 

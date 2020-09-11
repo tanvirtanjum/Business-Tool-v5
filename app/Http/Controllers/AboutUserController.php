@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class AboutUserController extends Controller
 {
@@ -37,9 +38,21 @@ class AboutUserController extends Controller
 
   function saveEdit(Request $request)
   {
+    $validate = Validator::make($request->all(),[
+
+      'fullname'=>'required',
+      'email'=>'required',
+      'mobile'=>'required',
+    ]);
+    if($validate->fails())
+    {
+      return back()->with('errors',$validate->errors())->withInput();
+    }
+
     if($request->session()->get('LID') != '5')
     {
       $empUpdate = DB::table('employee')->where('EmpID', $request->session()->get('LID'))->update(['E_NAME' => $request->fullname, 'E_MAIL' => $request->email, 'E_MOB' => $request->mobile]);
+      
     }
     else
     {
@@ -48,4 +61,5 @@ class AboutUserController extends Controller
 
     return redirect()->route('aboutUser.index');
   }
+  
 }
