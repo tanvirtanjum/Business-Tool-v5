@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
+
 use Validator;
+
 
 class AboutUserController extends Controller
 {
@@ -51,12 +55,31 @@ class AboutUserController extends Controller
 
     if($request->session()->get('LID') != '5')
     {
-      $empUpdate = DB::table('employee')->where('EmpID', $request->session()->get('LID'))->update(['E_NAME' => $request->fullname, 'E_MAIL' => $request->email, 'E_MOB' => $request->mobile]);
+      if(Input::hasFile('avatar'))
+      {
+        $file = Input::file('avatar');
+        $file->move(public_path().'/uploads/',$file->getClientOriginalName());
+        $url = URL::to("/").'/uploads/'.$file->getClientOriginalName();
+        
+      }
+      // $ava ->avatar = $url;
+      // $ava->save();
+      
+      $empUpdate = DB::table('employee')->where('EmpID', $request->session()->get('LID'))->update(['E_NAME' => $request->fullname, 'E_MAIL' => $request->email, 'E_MOB' => $request->mobile,'avatar'=>$url]);
       
     }
     else
     {
-      $empUpdate = DB::table('customer')->where('cusid', $request->session()->get('LID'))->update(['name' => $request->fullname, 'design' => $request->designation, 'email' => $request->email, 'mobile' => $request->mobile]);
+      if(Input::hasFile('avatar'))
+      {
+        $file = Input::file('avatar');
+        $file->move(public_path().'/uploads/',$file->getClientOriginalName());
+        $url = URL::to("/").'/uploads/'.$file->getClientOriginalName();
+        
+      }
+      // $ava ->avatar = $url;
+      // $ava->save();
+      $empUpdate = DB::table('customer')->where('cusid', $request->session()->get('LID'))->update(['name' => $request->fullname, 'design' => $request->designation, 'email' => $request->email, 'mobile' => $request->mobile,'avatar'=>$url]);
     }
 
     return redirect()->route('aboutUser.index');

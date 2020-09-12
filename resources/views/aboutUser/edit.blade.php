@@ -31,8 +31,9 @@
         @csrf
         
         {{-- <img src="" style="height: 50px;width:50px;border-radius:50%"> --}}
-        {{-- <input type="file"> --}}
-        <p></p>Username<br>
+
+        <p>Upload Profile Picture</p><input style="margin-top: 5px" type="file" name="avatar">
+        <p style="margin-top:5px">Username</p><br>
         <input type="text" name="username" value="@if(Session::get('SID')!='5'){{$info->EmpID}} @else{{$info->cusid}} @endif" readonly><br>
         <p>Full Name</p><br>
         <input type="text" name="fullname" value="@if(Session::get('SID')!='5'){{$info->E_NAME}} @else{{$info->name}} @endif"><br>
