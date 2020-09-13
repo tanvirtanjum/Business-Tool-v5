@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2020 at 05:53 PM
+-- Generation Time: Sep 13, 2020 at 06:01 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -54,11 +54,11 @@ CREATE TABLE `avatar` (
 --
 
 INSERT INTO `avatar` (`id`, `avatar`, `LID`) VALUES
-(5, 'http://localhost:3000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg', 1),
-(7, 'http://localhost:3000/uploads/avatar.jpg', 2),
-(8, 'http://localhost:3000/uploads/avatar.jpg', 3),
-(11, 'http://localhost:3000/uploads/avatar.jpg', 4),
-(12, 'http://localhost:3000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg', 5);
+(5, 'http://localhost:8000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg', 1),
+(7, 'http://localhost:8000/uploads/avatar.jpg', 2),
+(8, 'http://localhost:8000/uploads/avatar.jpg', 3),
+(11, 'http://localhost:8000/uploads/avatar.jpg', 4),
+(12, 'http://localhost:8000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg', 5);
 
 -- --------------------------------------------------------
 
