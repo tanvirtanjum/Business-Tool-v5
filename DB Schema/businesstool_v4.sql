@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2020 at 11:05 PM
+-- Generation Time: Sep 13, 2020 at 05:53 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -36,6 +36,29 @@ CREATE TABLE `activations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `avatar`
+--
+
+CREATE TABLE `avatar` (
+  `id` int(3) NOT NULL,
+  `avatar` varchar(200) DEFAULT NULL,
+  `LID` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `avatar`
+--
+
+INSERT INTO `avatar` (`id`, `avatar`, `LID`) VALUES
+(5, 'http://localhost:3000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg', 1),
+(7, 'http://localhost:3000/uploads/avatar.jpg', 2),
+(8, 'http://localhost:3000/uploads/avatar.jpg', 3),
+(11, 'http://localhost:3000/uploads/avatar.jpg', 4),
+(12, 'http://localhost:3000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -126,20 +149,19 @@ CREATE TABLE `employee` (
   `E_MOB` varchar(14) NOT NULL,
   `E_MAIL` varchar(50) NOT NULL,
   `JOIN_DATE` datetime NOT NULL DEFAULT current_timestamp(),
-  `ADDED_BY` varchar(15) NOT NULL,
-  `avatar` varchar(200) NOT NULL
+  `ADDED_BY` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOIN_DATE`, `ADDED_BY`, `avatar`) VALUES
-('1', 'TANVIR TANJUM SHOURAV', 1, 100000.00, '01515217820', 'tanjumtanvir@gmail.com', '2020-08-10 19:28:06', '1', 'http://localhost:3000/uploads/my-top-10-favorite-anime-characters-u2.webp'),
-('2', 'hasib', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1', 'http://localhost:3000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg'),
-('3', 'shanto', 3, 15000.00, '01778578380', 'santo0@gmail.com', '2020-08-14 10:59:24', '1', ''),
-('4', 'Anik', 4, 15000.00, '01251654544', 'anik@gmail.com', '2020-08-14 11:00:19', '1', ''),
-('A1', 'JARIN TASNIM', 1, 150000.00, '01515217001', 'shama@gmail.com', '2020-08-11 21:50:02', '1', '');
+INSERT INTO `employee` (`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOIN_DATE`, `ADDED_BY`) VALUES
+('1', 'TANVIR TANJUM SHOURAV', 1, 100000.00, '01515217820', 'tanjumtanvir@gmail.com', '2020-08-10 19:28:06', '1'),
+('2', 'hasib', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1'),
+('3', 'shanto', 3, 15000.00, '01778578380', 'santo0@gmail.com', '2020-08-14 10:59:24', '1'),
+('4', 'Anik', 4, 15000.00, '01251654544', 'anik@gmail.com', '2020-08-14 11:00:19', '1'),
+('A1', 'JARIN TASNIM', 1, 150000.00, '01515217001', 'shama@gmail.com', '2020-08-11 21:50:02', '1');
 
 -- --------------------------------------------------------
 
@@ -461,6 +483,12 @@ ALTER TABLE `activations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `avatar`
+--
+ALTER TABLE `avatar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `chat`
 --
 ALTER TABLE `chat`
@@ -608,6 +636,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `activations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `avatar`
+--
+ALTER TABLE `avatar`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `chat`

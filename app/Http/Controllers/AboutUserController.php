@@ -13,6 +13,7 @@ use Validator;
 class AboutUserController extends Controller
 {
   public $info;
+  public $pic;
 
   function index(Request $request)
   {
@@ -24,7 +25,8 @@ class AboutUserController extends Controller
     {
       $this->info = DB::table('customer')->where('cusid', $request->session()->get('LID'))->first();
     }
-  	return view('aboutUser.index')->with('info', $this->info);
+    $this->pic = DB::table('avatar')->where('LID',$request->session()->get('LID'))->first();
+  	return view('aboutUser.index')->with('info', $this->info)->with('pic',$this->pic);
   }
 
   function edit(Request $request)
@@ -42,6 +44,7 @@ class AboutUserController extends Controller
 
   function saveEdit(Request $request)
   {
+    //validation:
     $validate = Validator::make($request->all(),[
 
       'fullname'=>'required',
@@ -53,33 +56,31 @@ class AboutUserController extends Controller
       return back()->with('errors',$validate->errors())->withInput();
     }
 
+    //Profile Picture Upload:
+    if(Input::hasFile('avatar'))
+    {
+      $file = Input::file('avatar');
+      $file->move(public_path().'/uploads/',$file->getClientOriginalName());
+      $url = URL::to("/").'/uploads/'.$file->getClientOriginalName();
+      
+      if(DB::table('avatar')->where('LID',$request->session()->get('LID'))->first() == null)
+      {
+        $ava = DB::table('avatar')->insert(['avatar'=>$url,'LID'=>session()->get('LID')]);
+      }
+      if(DB::table('avatar')->where('LID',$request->session()->get('LID'))->first() != null)
+      {
+        $avaUpdate= DB::table('avatar')->where('LID', $request->session()->get('LID'))->update(['avatar'=>$url]);
+      }
+    }
+    
+
     if($request->session()->get('LID') != '5')
     {
-      if(Input::hasFile('avatar'))
-      {
-        $file = Input::file('avatar');
-        $file->move(public_path().'/uploads/',$file->getClientOriginalName());
-        $url = URL::to("/").'/uploads/'.$file->getClientOriginalName();
-        
-      }
-      // $ava ->avatar = $url;
-      // $ava->save();
-      
-      $empUpdate = DB::table('employee')->where('EmpID', $request->session()->get('LID'))->update(['E_NAME' => $request->fullname, 'E_MAIL' => $request->email, 'E_MOB' => $request->mobile,'avatar'=>$url]);
-      
+      $empUpdate = DB::table('employee')->where('EmpID', $request->session()->get('LID'))->update(['E_NAME' => $request->fullname, 'E_MAIL' => $request->email, 'E_MOB' => $request->mobile]);
     }
     else
     {
-      if(Input::hasFile('avatar'))
-      {
-        $file = Input::file('avatar');
-        $file->move(public_path().'/uploads/',$file->getClientOriginalName());
-        $url = URL::to("/").'/uploads/'.$file->getClientOriginalName();
-        
-      }
-      // $ava ->avatar = $url;
-      // $ava->save();
-      $empUpdate = DB::table('customer')->where('cusid', $request->session()->get('LID'))->update(['name' => $request->fullname, 'design' => $request->designation, 'email' => $request->email, 'mobile' => $request->mobile,'avatar'=>$url]);
+      $empUpdate = DB::table('customer')->where('cusid', $request->session()->get('LID'))->update(['name' => $request->fullname, 'design' => $request->designation, 'email' => $request->email, 'mobile' => $request->mobile]);
     }
 
     return redirect()->route('aboutUser.index');
