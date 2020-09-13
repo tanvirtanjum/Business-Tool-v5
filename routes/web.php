@@ -27,7 +27,10 @@ Route::post('/login', 'LoginController@login_request');
 
 Route::get('/signup', 'SignupController@index')->name('signup.index');
 
-Route::get('/recover', 'ResetPasswordController@index')->name('recover.index');
+Route::get('/resetPassword/index', 'ResetPasswordController@index')->name('resetPassword.index');
+Route::post('/resetPassword/index', 'ResetPasswordController@sendMail');
+
+Route::get('/resetPassword/resetPage/{email}/{token}','ResetPasswordController@resetPage')->name('resetPassword.reset');
 
 //HAS Session Validation Required (DONE)
 Route::middleware(['SESS'])->group(function()

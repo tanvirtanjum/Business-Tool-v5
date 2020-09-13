@@ -10,20 +10,13 @@
 
 <body>
 	<div class="wrap">
-		<span style="color: red">
-			@if (session('error'))
-				{{session('error')}}
-			@endif
-		</span>
-		<span style="color: green">
-			@if (session('success'))
-				{{session('success')}}
-			@endif
-		</span>
 		<h2>Reset Password</h2>
 		<form method="post" name="myForm">
-			<input type="hidden" name="token" value="{{ csrf_token() }}">
-			<input type="email" name="email" placeholder="Enter your Email" value="" required>
+			@csrf
+			<input type="email" name="email" placeholder="Email" value="{{$details['email']}}" readonly>
+			<input type="text" name="newpass" placeholder="New Password" value="">
+			<input type="text" name="connewpass" placeholder="Confirm New Password" value="">
+			<span id="err1"></span>
 			<input type="submit" value="SUBMIT">
 		</form>
 	</div>

@@ -16,10 +16,6 @@
           <input type="submit" name="Signup" id="signup" value="Signup">
           <input type="submit" name="Login" id="login" value="Login">
       </div>
-
-      <div class="p">
-          <p>Welcome <br>To Business Tool</p>
-      </div>
     </form>
   </body>
 </html>
