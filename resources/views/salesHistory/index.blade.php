@@ -1,12 +1,19 @@
-
+@if(Session::get('SID') == 1)
+      @include('adminDash.common')
+@elseif(Session::get('SID') == 2)
+      @include('managerDash.common')
+@elseif(Session::get('SID') == 3)
+      @include('salesmanDash.common')
+@else
+@endif
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sales History</title>
-    <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/history.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/history.css') }}">
     <script src="../assets/js/printSalesHistory.js"></script>
 </head>
 <body>

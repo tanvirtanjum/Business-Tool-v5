@@ -1,12 +1,12 @@
-
+@include('managerDash.common')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Pending Orders</title>
-    <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/orderManage.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/orderManage.css') }}">
 
 </head>
 <body>

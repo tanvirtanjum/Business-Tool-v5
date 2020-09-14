@@ -1,10 +1,11 @@
 <!-- sidebar Included -->
+@include('managerDash.common')
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/../assets/styles/common.css">
-    <link rel="stylesheet" type="text/css" href="/../assets/styles/buy.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/buy.css') }}">
     <title>Select Delivery Man</title>
 </head>
 <body>

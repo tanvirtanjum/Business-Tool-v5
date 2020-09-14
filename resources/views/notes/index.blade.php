@@ -1,11 +1,23 @@
-
+@if(Session::get('SID') == 1)
+      @include('adminDash.common')
+@elseif(Session::get('SID') == 2)
+      @include('managerDash.common')
+@elseif(Session::get('SID') == 3)
+      @include('salesmanDash.common')
+@elseif(Session::get('SID') == 4)
+      @include('DeliverymanDash.common')
+@elseif(Session::get('SID') == 5)
+      @include('customerDash.common')
+@else
+@endif
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Notes</title>
-		<link rel="stylesheet" type="text/css" href="../assets/styles/notes.css">
-    <script src="../assets/js/saveNotes.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/notes.css') }}">
+    	{{-- <script src="../assets/js/saveNotes.js"></script> --}}
 	</head>
 	<body>
 		<div class="box">

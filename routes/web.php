@@ -39,6 +39,10 @@ Route::middleware(['SESS'])->group(function()
     Route::get('/aboutUser/editProfile', 'AboutUserController@edit')->name('aboutUser.editProfile');
     Route::post('/aboutUser/editProfile', 'AboutUserController@saveEdit');
     
+    Route::get('salesHistory','SalesHistory@index')->name('salesHistory.index');
+
+    Route::get('notes','Notes@index')->name('notes.index');
+    Route::get('notice','Notice@index')->name('notice.index');
 
     Route::get('/logout', 'LogoutController@execute')->name('logout.execute');
 
@@ -52,6 +56,11 @@ Route::middleware(['SESS'])->group(function()
     Route::group(['middleware'=>['MANAGER']],function()
     {
       Route::get('/managerDash', 'ManagerDashController@index')->name('managerDash.index');
+      Route::get('/managerDash/prodManageManager', 'ManagerDashController@viewProductManager')->name('managerDash.prodManageManager.index');
+
+
+      Route::get('/managerDash/orderManageManager', 'ManagerDashController@viewOrderManager')->name('managerDash.orderManageManager.index');
+
     });
 
     //SALESMAN Session Validation Required (DONE)
