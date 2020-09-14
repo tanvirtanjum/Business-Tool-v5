@@ -25,8 +25,9 @@ class AboutUserController extends Controller
     {
       $this->info = DB::table('customer')->where('cusid', $request->session()->get('LID'))->first();
     }
-    $this->pic = DB::table('avatar')->where('LID',$request->session()->get('LID'))->first();
-  	return view('aboutUser.index')->with('info', $this->info)->with('pic',$this->pic);
+    //$this->pic = DB::table('avatar')->where('LID',$request->session()->get('LID'))->first();
+  	//return view('aboutUser.index')->with('info', $this->info)->with('pic',$this->pic);
+    return view('aboutUser.index')->with('info', $this->info);
   }
 
   function edit(Request $request)
@@ -62,7 +63,7 @@ class AboutUserController extends Controller
       $file = Input::file('avatar');
       $file->move(public_path().'/uploads/',$file->getClientOriginalName());
       $url = URL::to("/").'/uploads/'.$file->getClientOriginalName();
-      
+
       if(DB::table('avatar')->where('LID',$request->session()->get('LID'))->first() == null)
       {
         $ava = DB::table('avatar')->insert(['avatar'=>$url,'LID'=>session()->get('LID')]);
@@ -72,7 +73,7 @@ class AboutUserController extends Controller
         $avaUpdate= DB::table('avatar')->where('LID', $request->session()->get('LID'))->update(['avatar'=>$url]);
       }
     }
-    
+
 
     if($request->session()->get('LID') != '5')
     {
@@ -85,5 +86,5 @@ class AboutUserController extends Controller
 
     return redirect()->route('aboutUser.index');
   }
-  
+
 }

@@ -27,9 +27,9 @@
   <div class="box">
     <h1>Profile Info <i class="fas fa-users"></i></h1>
 
-    <form method="POST" autocomplete="off" enctype="multipart/form-data"> 
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
         @csrf
-        
+
         {{-- <img src="" style="height: 50px;width:50px;border-radius:50%"> --}}
 
         <p>Upload Profile Picture</p><input style="margin-top: 5px" type="file" name="avatar">
@@ -41,7 +41,7 @@
         <span style="color: red">{{$err}}</span> <br>
         @endforeach
         <p>Designation</p><br>
-        <input type="text" name="designation" value="@if(Session::get('SID')==1)ADMIN @elseif(Session::get('SID')==2)MANAGER @elseif(Session::get('SID')==3)SALESMAN @elseif(Session::get('SID')==4)DELIVERYMAN @else{{$info->design}} @endif" "@if(Session::get('SID')=='5')readonly @else @endif"><br>
+        <input type="text" name="designation" value="@if(Session::get('SID')==1)ADMIN @elseif(Session::get('SID')==2)MANAGER @elseif(Session::get('SID')==3)SALESMAN @elseif(Session::get('SID')==4)DELIVERYMAN @else{{$info->design}} @endif" "@if(Session::get('SID')=='5')readonly @endif"><br>
         <p>Email<i class="far fa-envelope"></i></p><br>
         <input type="email" name="email" value="@if(Session::get('SID')!='5'){{$info->E_MAIL}} @else{{$info->email}} @endif"><br>
         @foreach($errors->get('email') as $err)

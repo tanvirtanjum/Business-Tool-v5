@@ -26,7 +26,7 @@
   <div class="box">
     <form method="POST">
         <h1>Profile Info <i class="fas fa-users"></i></h1>
-        <img src="{{$pic->avatar}}" style="height: 50px;width:50px;border-radius:50%"> 
+        <img src="{{URL::to('uploads/'.$info->avatar)}}" style="height: 50px;width:50px;border-radius:50%"> 
         <p></p>Username<br>
         <input type="text" name="username" value="@if(Session::get('SID')!='5'){{$info->EmpID}} @else{{$info->cusid}} @endif" readonly><br>
         <p>Full Name</p><br>

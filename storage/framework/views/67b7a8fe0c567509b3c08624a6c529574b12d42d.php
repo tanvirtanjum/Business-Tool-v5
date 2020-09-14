@@ -25,18 +25,33 @@
 </head>
 <body>
   <div class="box">
-    <form method="POST" autocomplete="off" name="myForm" onsubmit="return(validate());">
-        <h1>Profile Info <i class="fas fa-users"></i></h1>
-        <p></p>Username<br>
+    <h1>Profile Info <i class="fas fa-users"></i></h1>
+
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        <?php echo csrf_field(); ?>
+
+        
+
+        <p>Upload Profile Picture</p><input style="margin-top: 5px" type="file" name="avatar">
+        <p style="margin-top:5px">Username</p><br>
         <input type="text" name="username" value="<?php if(Session::get('SID')!='5'): ?><?php echo e($info->EmpID); ?> <?php else: ?><?php echo e($info->cusid); ?> <?php endif; ?>" readonly><br>
         <p>Full Name</p><br>
         <input type="text" name="fullname" value="<?php if(Session::get('SID')!='5'): ?><?php echo e($info->E_NAME); ?> <?php else: ?><?php echo e($info->name); ?> <?php endif; ?>"><br>
+        <?php $__currentLoopData = $errors->get('fullname'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <span style="color: red"><?php echo e($err); ?></span> <br>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <p>Designation</p><br>
-        <input type="text" name="designation" value="<?php if(Session::get('SID')==1): ?>ADMIN <?php elseif(Session::get('SID')==2): ?>MANAGER <?php elseif(Session::get('SID')==3): ?>SALESMAN <?php elseif(Session::get('SID')==4): ?>DELIVERYMAN <?php else: ?><?php echo e($info->design); ?> <?php endif; ?>" "<?php if(Session::get('SID')=='5'): ?>readonly <?php else: ?> <?php endif; ?>"><br>
+        <input type="text" name="designation" value="<?php if(Session::get('SID')==1): ?>ADMIN <?php elseif(Session::get('SID')==2): ?>MANAGER <?php elseif(Session::get('SID')==3): ?>SALESMAN <?php elseif(Session::get('SID')==4): ?>DELIVERYMAN <?php else: ?><?php echo e($info->design); ?> <?php endif; ?>" "<?php if(Session::get('SID')=='5'): ?>readonly <?php endif; ?>"><br>
         <p>Email<i class="far fa-envelope"></i></p><br>
         <input type="email" name="email" value="<?php if(Session::get('SID')!='5'): ?><?php echo e($info->E_MAIL); ?> <?php else: ?><?php echo e($info->email); ?> <?php endif; ?>"><br>
+        <?php $__currentLoopData = $errors->get('email'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <span style="color: red"><?php echo e($err); ?></span> <br>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <p>Mobile No.</p><br>
         <input type="text" name="mobile" value="<?php if(Session::get('SID')!='5'): ?><?php echo e($info->E_MOB); ?> <?php else: ?><?php echo e($info->mobile); ?> <?php endif; ?>"><br>
+        <?php $__currentLoopData = $errors->get('mobile'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <span style="color: red"><?php echo e($err); ?></span> <br>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <p>Join Date</p>
         <input type="text" name="joinDate" value="<?php if(Session::get('SID')!='5'): ?><?php echo e($info->JOIN_DATE); ?> <?php else: ?><?php echo e($info->reg_date); ?> <?php endif; ?>" readonly><br>
         <input type="submit" name="save" value="Save Edit">

@@ -20,7 +20,7 @@
 			<input type="password" name="password" id="password" placeholder="Enter Password" required><br>
 			<div align="middle"> <span style="color:red; font-weight: bold;"> <?php echo e(session('_alert')); ?> </span> </div> <br>
 			<input type="submit" name="submit" value="Login">
-			<a href="<?php echo e(route('recover.index')); ?>" target="_blank">Forget password?</a><br>
+			<a href="<?php echo e(route('resetPassword.index')); ?>" target="_blank">Forget password?</a><br>
 			<a href="<?php echo e(route('signup.index')); ?>">Don't have an account?</a>
 		</form>
 	</div>
