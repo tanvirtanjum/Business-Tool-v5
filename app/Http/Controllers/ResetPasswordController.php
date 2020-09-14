@@ -36,7 +36,7 @@ class ResetPasswordController extends Controller
             \Mail::to($request->email)->send(new \App\Mail\TestMail($details));
             return redirect()->back()->with(['success'=>'Reset Code send to your Email']);
         }
-        
+
     }
 
     public function resetPage(Request $request)

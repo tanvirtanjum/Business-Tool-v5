@@ -11,6 +11,10 @@
 
 <body>
 	<div class="loginbox">
+		<span style="color:green">
+			<?php echo e(session('success')); ?>
+
+		</span>
 		<img src="<?php echo e(URL::to('css/images/user.png')); ?>" class="avatar">
 		<h1>Login Here</h1>
 		<form method="post" name="login" onsubmit="return(validate());">

@@ -26,7 +26,7 @@
   <div class="box">
     <form method="POST">
         <h1>Profile Info <i class="fas fa-users"></i></h1>
-        <img src="<?php echo e(URL::to('uploads/'.$info->avatar)); ?>" style="height: 50px;width:50px;border-radius:50%"> 
+        <img src="<?php echo e(URL::to('uploads/'.$pic->IMAGE)); ?>" style="height: 50px;width:50px;border-radius:50%"> 
         <p></p>Username<br>
         <input type="text" name="username" value="<?php if(Session::get('SID')!='5'): ?><?php echo e($info->EmpID); ?> <?php else: ?><?php echo e($info->cusid); ?> <?php endif; ?>" readonly><br>
         <p>Full Name</p><br>

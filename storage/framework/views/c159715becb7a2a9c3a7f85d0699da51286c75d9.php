@@ -10,17 +10,22 @@
 
 <body>
 	<div class="wrap">
+		<span style="color: red">
+			<?php if(session('error')): ?>
+				<?php echo e(session('error')); ?>
+
+			<?php endif; ?>
+		</span>
+		<span style="color: green">
+			<?php if(session('success')): ?>
+				<?php echo e(session('success')); ?>
+
+			<?php endif; ?>
+		</span>
 		<h2>Reset Password</h2>
 		<form method="post" name="myForm">
-			<input type="text" name="a" placeholder="Username" value="" required>
-			<input type="text" name="b" placeholder="Full Name" value="" required>
-			<input type="text" name="c" placeholder="Designation" value="" required>
-			<input type="email" name="d" placeholder="Email" value="" required>
-      <input type="number" name="e" placeholder="Mobile Number" value="" required>
-			<input type="text" name="f" placeholder="New Password" value="" required>
-			<span id="err"></span>
-			<input type="text" name="g" placeholder="Confirm New Password" value="" required>
-			<span id="err1"></span>
+			<input type="hidden" name="token" value="<?php echo e(csrf_token()); ?>">
+			<input type="email" name="email" placeholder="Enter your Email" value="" required>
 			<input type="submit" value="SUBMIT">
 		</form>
 	</div>

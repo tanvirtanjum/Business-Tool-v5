@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2020 at 06:01 PM
+-- Generation Time: Sep 14, 2020 at 04:15 PM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,29 +36,6 @@ CREATE TABLE `activations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `avatar`
---
-
-CREATE TABLE `avatar` (
-  `id` int(3) NOT NULL,
-  `avatar` varchar(200) DEFAULT NULL,
-  `LID` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `avatar`
---
-
-INSERT INTO `avatar` (`id`, `avatar`, `LID`) VALUES
-(5, 'http://localhost:8000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg', 1),
-(7, 'http://localhost:8000/uploads/avatar.jpg', 2),
-(8, 'http://localhost:8000/uploads/avatar.jpg', 3),
-(11, 'http://localhost:8000/uploads/avatar.jpg', 4),
-(12, 'http://localhost:8000/uploads/17beafb18f16457d3b1d8d597f492b52.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -131,9 +108,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cusid`, `name`, `design`, `email`, `mobile`, `reg_date`, `status`) VALUES
-('5', 'ZISHAD HOSSAIN LIMON', 'Teacher', 'zishadlimon@gmail.com', '01521428944', '2020-08-10 20:15:25', 1),
-('55', 'shanro', 'Customer', 'hasSha@gmail.com', '1778578380', '2020-08-14 08:49:46', 1),
-('555', 'hasib', 'customer', 'cus@gmail.com', '145454', '2020-08-14 08:58:08', 1);
+('5', 'ZISHAD HOSSAIN LIMON', 'Teacher', 'zishadlimon@gmail.com', '01521428944', '2020-08-10 20:15:25', 1);
 
 -- --------------------------------------------------------
 
@@ -158,21 +133,9 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOIN_DATE`, `ADDED_BY`) VALUES
 ('1', 'TANVIR TANJUM SHOURAV', 1, 100000.00, '01515217820', 'tanjumtanvir@gmail.com', '2020-08-10 19:28:06', '1'),
-('2', 'hasib', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1'),
-('3', 'shanto', 3, 15000.00, '01778578380', 'santo0@gmail.com', '2020-08-14 10:59:24', '1'),
-('4', 'Anik', 4, 15000.00, '01251654544', 'anik@gmail.com', '2020-08-14 11:00:19', '1'),
-('A1', 'JARIN TASNIM', 1, 150000.00, '01515217001', 'shama@gmail.com', '2020-08-11 21:50:02', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emp_image`
---
-
-CREATE TABLE `emp_image` (
-  `IEmpID` varchar(15) DEFAULT NULL,
-  `EmpIMG` blob DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+('2', 'HASIN SHANTO', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1'),
+('3', 'RAHATUL MAKSUD', 3, 15000.00, '01778578380', 'santo0@gmail.com', '2020-08-14 10:59:24', '1'),
+('4', 'MD. AL-AMIN', 4, 15000.00, '01251654544', 'anik@gmail.com', '2020-08-14 11:00:19', '1');
 
 -- --------------------------------------------------------
 
@@ -195,10 +158,7 @@ INSERT INTO `log_in` (`LID`, `SID`, `PASS`) VALUES
 ('2', 2, '2222'),
 ('3', 3, '3333'),
 ('4', 4, '4444'),
-('5', 5, '5555'),
-('55', 5, '5555'),
-('555', 5, '5555'),
-('A1', 1, '12345');
+('5', 5, '5555');
 
 -- --------------------------------------------------------
 
@@ -337,9 +297,30 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`PID`, `P_NAME`, `TYPE`, `AVAILABILITY`, `QUANTITY`, `BUY_PRICE`, `SELL_PRICE`, `MOD_BY`, `Add_PDate`) VALUES
 ('L101F', 'lll', 'Laptop', 'AVAILABLE', 0, 15000.00, 15500.00, '1', '2020-08-13 15:18:23'),
-('L102F', 'sf', 'Laptop', 'AVAILABLE', 117, 1500.00, 1600.00, 'A1', '2020-08-13 16:38:34'),
 ('L103F', 'fff', 'Laptop', 'AVAILABLE', 15, 2000.00, 2100.00, '1', '2020-08-13 16:38:34'),
 ('L203F', 'Asus', 'Keyboard', 'UNAVAILABLE', 5, 500.00, 600.00, '2', '2020-08-14 10:22:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile_image`
+--
+
+CREATE TABLE `profile_image` (
+  `UID` int(10) UNSIGNED NOT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `profile_image`
+--
+
+INSERT INTO `profile_image` (`UID`, `IMAGE`) VALUES
+(1, 'PIC.jpg'),
+(2, 'BT_Default_avatar_011211.png'),
+(3, 'BT_Default_avatar_011211.png'),
+(4, 'BT_Default_avatar_011211.png'),
+(5, 'BT_Default_avatar_011211.png');
 
 -- --------------------------------------------------------
 
@@ -483,12 +464,6 @@ ALTER TABLE `activations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `avatar`
---
-ALTER TABLE `avatar`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `chat`
 --
 ALTER TABLE `chat`
@@ -518,12 +493,6 @@ ALTER TABLE `employee`
   ADD UNIQUE KEY `E_MAIL` (`E_MAIL`),
   ADD KEY `D_ID` (`DID`),
   ADD KEY `ADDED_BY` (`ADDED_BY`);
-
---
--- Indexes for table `emp_image`
---
-ALTER TABLE `emp_image`
-  ADD KEY `IEmpID` (`IEmpID`);
 
 --
 -- Indexes for table `log_in`
@@ -578,6 +547,12 @@ ALTER TABLE `persistences`
 ALTER TABLE `product`
   ADD PRIMARY KEY (`PID`),
   ADD KEY `MOD_BY` (`MOD_BY`);
+
+--
+-- Indexes for table `profile_image`
+--
+ALTER TABLE `profile_image`
+  ADD PRIMARY KEY (`UID`);
 
 --
 -- Indexes for table `reminders`
@@ -638,12 +613,6 @@ ALTER TABLE `activations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `avatar`
---
-ALTER TABLE `avatar`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
@@ -684,6 +653,12 @@ ALTER TABLE `orderlist`
 --
 ALTER TABLE `persistences`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `profile_image`
+--
+ALTER TABLE `profile_image`
+  MODIFY `UID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `reminders`
@@ -745,12 +720,6 @@ ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`DID`) REFERENCES `status` (`SID`),
   ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`ADDED_BY`) REFERENCES `log_in` (`LID`),
   ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`EmpID`) REFERENCES `log_in` (`LID`);
-
---
--- Constraints for table `emp_image`
---
-ALTER TABLE `emp_image`
-  ADD CONSTRAINT `emp_image_ibfk_1` FOREIGN KEY (`IEmpID`) REFERENCES `employee` (`EmpID`);
 
 --
 -- Constraints for table `log_in`

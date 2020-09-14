@@ -32,7 +32,7 @@
 
         
 
-        <p>Upload Profile Picture</p><input style="margin-top: 5px" type="file" name="avatar">
+        <p>Upload Profile Picture</p><input style="margin-top: 5px" type="file" name="avatar" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
         <p style="margin-top:5px">Username</p><br>
         <input type="text" name="username" value="<?php if(Session::get('SID')!='5'): ?><?php echo e($info->EmpID); ?> <?php else: ?><?php echo e($info->cusid); ?> <?php endif; ?>" readonly><br>
         <p>Full Name</p><br>
@@ -41,7 +41,7 @@
         <span style="color: red"><?php echo e($err); ?></span> <br>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <p>Designation</p><br>
-        <input type="text" name="designation" value="<?php if(Session::get('SID')==1): ?>ADMIN <?php elseif(Session::get('SID')==2): ?>MANAGER <?php elseif(Session::get('SID')==3): ?>SALESMAN <?php elseif(Session::get('SID')==4): ?>DELIVERYMAN <?php else: ?><?php echo e($info->design); ?> <?php endif; ?>" "<?php if(Session::get('SID')=='5'): ?>readonly <?php endif; ?>"><br>
+        <input type="text" name="designation" value="<?php if(Session::get('SID')==1): ?>ADMIN <?php elseif(Session::get('SID')==2): ?>MANAGER <?php elseif(Session::get('SID')==3): ?>SALESMAN <?php elseif(Session::get('SID')==4): ?>DELIVERYMAN <?php else: ?><?php echo e($info->design); ?> <?php endif; ?>" "<?php if(Session::get('SID') !='5'): ?> readonly <?php endif; ?>"><br>
         <p>Email<i class="far fa-envelope"></i></p><br>
         <input type="email" name="email" value="<?php if(Session::get('SID')!='5'): ?><?php echo e($info->E_MAIL); ?> <?php else: ?><?php echo e($info->email); ?> <?php endif; ?>"><br>
         <?php $__currentLoopData = $errors->get('email'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
