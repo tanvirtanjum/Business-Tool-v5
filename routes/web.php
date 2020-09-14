@@ -26,6 +26,7 @@ Route::get('/login/check', 'LoginController@check')->name('login.justify');
 Route::post('/login', 'LoginController@login_request');
 
 Route::get('/signup', 'SignupController@index')->name('signup.index');
+Route::post('/signup', 'SignupController@create');
 
 Route::get('/resetPassword/index', 'ResetPasswordController@index')->name('resetPassword.index');
 Route::post('/resetPassword/index', 'ResetPasswordController@sendMail');
