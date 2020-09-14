@@ -11,6 +11,9 @@
 
 <body>
 	<div class="loginbox">
+		<span style="color:green">
+			{{session('success')}}
+		</span>
 		<img src="{{ URL::to('css/images/user.png') }}" class="avatar">
 		<h1>Login Here</h1>
 		<form method="post" name="login" onsubmit="return(validate());">

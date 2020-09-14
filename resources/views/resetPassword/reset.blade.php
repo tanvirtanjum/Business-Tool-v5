@@ -17,7 +17,10 @@
 			<input type="text" name="newpass" placeholder="New Password" value="">
 			<input type="text" name="connewpass" placeholder="Confirm New Password" value="">
 			<span id="err1"></span>
-			<input type="submit" value="SUBMIT">
+			<input type="submit" value="SUBMIT"><br>
+			@foreach($errors->all() as $err)
+			<span style="color: red">{{$err}} <br></span>
+			@endforeach
 		</form>
 	</div>
 </body>

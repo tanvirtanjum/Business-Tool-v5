@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class ResetPasswordController extends Controller
 {
@@ -52,9 +53,26 @@ class ResetPasswordController extends Controller
         }
         return view('resetPassword.reset')->with('details',$details);
     }
-    // function passRecover()
-    // {
-        
+    function passRecover(Request $request)
+    {
+        $info= DB::table('employee')->where('E_MAIL','=',$request->email)->first();
 
-    // }
+        $id=$info->EmpID;
+
+        $validate = Validator:: make($request->all(),[
+            'newpass' => 'required|min:4',
+            'connewpass' =>'required|same:newpass',
+        ]);
+        if($validate->fails())
+        {
+            return back()->with('errors',$validate->errors())->withInput();
+        }
+
+        else
+        {
+            $data = DB::table('log_in')->where('LID','=',$id)->update(['PASS'=>$request->connewpass]);
+
+            return redirect()->route('login.index')->with('success','Password Recoverd Successfully');
+        }
+    }
 }
