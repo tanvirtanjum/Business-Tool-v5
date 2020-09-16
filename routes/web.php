@@ -43,6 +43,9 @@ Route::middleware(['SESS'])->group(function()
     Route::get('salesHistory','SalesHistory@index')->name('salesHistory.index');
 
     Route::get('notes','Notes@index')->name('notes.index');
+    Route::post('notes','Notes@note');
+
+
     Route::get('notice','Notice@index')->name('notice.index');
 
     Route::get('/logout', 'LogoutController@execute')->name('logout.execute');

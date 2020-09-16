@@ -17,25 +17,32 @@
 		<title>Notes</title>
 		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/notes.css') }}">
-    	{{-- <script src="../assets/js/saveNotes.js"></script> --}}
+    	<script src="{{ URL::to('js/saveNotes.css') }}"></script>
+    	
 	</head>
 	<body>
 		<div class="box">
 			<h1>Take your Note</h1>
 			<form method='post'>
-				<input type="text" name="name" id="name" placeholder="Note name" value="">
+				@csrf
+			<input type="text" name="name" id="name" placeholder="Note name" value="{{$info1[0]->NoteName}}">
         <input type="Submit" name="PUSH" value="PUSH">
 				<input style="margin-left: 80px;width: 20%;" type="text" placeholder="Search by id" name="search">
-        <input type="hidden" name="NoteID" value="">
+			<input type="hidden" name="NoteID" value="{{$info[0]->NoteID}}">
 				<input style="margin-left: 5px;width: 15%;" type="Submit" name="SEE" value="SEE"><br>
-				<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20"></textarea><br>
+			<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20">{{$info1[0]->Text}}</textarea><br>
 				<input type="submit" name="REFRESH" value="REFRESH">
         <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT" onclick="return saveFile()">
 				<br><br>
 				<input type="submit" name="UPDATE" value="UPDATE" >
-        <input style="margin-left: 30px;" type="submit" name="DELETE" value="DELETE">
-
-      </form>
+        <input style="margin-left: 30px;" type="submit" name="DELETE" value="DELETE"><br><br>
+		@foreach($errors->all() as $err)
+		<span style="color: red">{{$err}} <br></span>
+		@endforeach
+		@if(session('success'))
+			<span style="color: green"> {{session('success')}}</span>
+		@endif
+      		</form>
 			<div align="right" class="table">
 				<table class="content-table">
 					<thead>
@@ -45,7 +52,12 @@
 						</tr>
 					</thead>
 					<tbody class="tab" id="tab">
-						
+						@for($i=0; $i != count($info); $i++)
+						<tr>
+							<td>{{$info[$i]->NoteID}}</td>
+							<td>{{$info[$i]->NoteName}}</td>
+						</tr>
+           				@endfor
 					</tbody>
 
 				</table>
