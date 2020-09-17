@@ -37,7 +37,7 @@
 			@foreach($errors->get('email') as $err)
         	<span style="color: red">{{$err}}</span> <br>
         	@endforeach
-			<input type="number" name="mobilenumber" placeholder="Mobile Number" value="">
+			<input type="number" name="mobile" placeholder="Mobile Number" value="">
 			@foreach($errors->get('mobilenumber') as $err)
         	<span style="color: red">{{$err}}</span> <br>
         	@endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Validator;
 
@@ -23,7 +24,7 @@ class SignupController extends Controller
             'fullname' =>'required',
             'design' =>'required',
             'email' =>'required',
-            'mobilenumber' =>'required|max:11',
+            'mobile' =>'required|max:11',
         ]);
         if($validate->fails())
         {
@@ -31,7 +32,19 @@ class SignupController extends Controller
         }
         else
         {
-            
+            $LID = $request->username;
+            $pass= $request->confirmpassword;
+            $SID = '0';
+
+            $login_table = DB::table('log_in')->insert(['LID'=>$LID,'SID'=>$SID,'PASS'=>$pass]);
+
+            if($login_table== TRUE)
+            {
+                DB::table('customer')->insert(['cusid'=>$LID,'name'=>$request->fullname,
+                'design'=>$request->design,'email'=>$request->email,'mobile'=>$request->mobile,'status'=>$SID]);
+
+                return redirect()->route('login.index')->with('success','Account Created wait for Admin Verify');
+            }
         }
     }
 
