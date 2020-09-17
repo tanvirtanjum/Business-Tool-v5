@@ -30,21 +30,27 @@ class SocialMediaSignupController extends Controller
         echo "Name: " , $usr->id;
 
         echo "<br/>";
+        echo "<br/>";
         echo "Name: " , $usr->name; 
         
         echo "<br/>";
+        echo "<br/>";
         
-
         echo "Email: " , $usr->email;
+        echo "<br/>";
         echo "<br/>";
 
         echo  "Your Password: 1234 , after login change your password";
         echo "<br/>";
+        echo "<br/>";
 
         echo "<span style='color:green'>Info Saved in Database wait For Admin Verification</span>";
         echo "<br/>";
+        echo "<br/>";
 
         echo "<a href='/'>Home Page</a>";
+        echo "<br/>";        
+
 
         $userID = $usr->id;
         $SID = '0';
