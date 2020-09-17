@@ -20,8 +20,6 @@ class NotesController extends Controller
 
   public function note(Request $request)
   {
-  if($request->session()->get('LID') == '1' || $request->session()->get('LID') == '2'||$request->session()->get('LID') == '3'|| $request->session()->get('LID') == '4')
-   {
       if(Input::get('SEE'))
       {
           $info1 = DB::table('note_m')->where('NoteID','=',$request->search)->where('OwnerID','=',$request->session()->get('LID'))->get();
@@ -71,6 +69,5 @@ class NotesController extends Controller
       {
           return redirect()->route('notes.index');
       }
-   }
   }
 }
