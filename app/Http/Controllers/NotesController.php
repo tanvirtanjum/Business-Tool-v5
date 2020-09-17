@@ -14,7 +14,18 @@ class NotesController extends Controller
 
   public function index(Request $request)
   {
-      $info = DB::table('note_m')->where('OwnerID','=',$request->session()->get('LID'))->get();
+    if($request->session()->has('con1'))
+    {
+      $request->session()->flash('udBTN', $request->session()->get('con1'));
+      $request->session()->flash('iBTN', $request->session()->get('con2'));
+      $request->session()->flash('iFLD', $request->session()->get('con3'));
+    }
+    else
+    {
+      $request->session()->flash('udBTN', 'disabled');
+    }  
+    
+    $info = DB::table('note_m')->where('OwnerID','=',$request->session()->get('LID'))->get();
       return view('notes.index')->with('info',$info);
   }
 
@@ -22,8 +33,31 @@ class NotesController extends Controller
   {
       if(Input::get('SEE'))
       {
-          $info1 = DB::table('note_m')->where('NoteID','=',$request->search)->where('OwnerID','=',$request->session()->get('LID'))->get();
-          return redirect()->route('notes.index');
+        $info1 = DB::table('note_m')->where('NoteID','=',$request->search)->where('OwnerID','=',$request->session()->get('LID'))->get();
+
+        if(count($info1)>0)
+        {
+            $request->session()->flash('NoteName',$info1[0]->NoteName);
+            $request->session()->flash('Text',$info1[0]->Text);
+            $request->session()->flash('NoteID',$info1[0]->NoteID);
+            $request->session()->flash('con1', '');
+            $request->session()->flash('con2', 'disabled');
+            $request->session()->flash('con3', 'readonly');
+
+            return redirect()->route('notes.index');
+
+        }
+        else
+        {
+            $request->session()->flash('srchERR', '&#10033;');
+            $request->session()->flash('con1', 'disabled');
+            $request->session()->flash('con2', '');
+            $request->session()->flash('con3', '');
+
+            return redirect()->route('notes.index');
+        }
+
+          
       }
 
       if(Input::get('PUSH'))
@@ -67,7 +101,7 @@ class NotesController extends Controller
 
       if(Input::get('PRINT'))
       {
-          return redirect()->route('notes.index');
+        return redirect()->route('notes.index');
       }
   }
 }
