@@ -27,6 +27,8 @@ Route::post('/login', 'LoginController@login_request');
 
 Route::get('/signup', 'SignupController@index')->name('signup.index');
 Route::post('/signup', 'SignupController@create');
+Route::get('/signup/socialMediaSignup','SocialMediaSignup@index')->name('signup.socialMediaSignup');
+Route::post('/signup/socialMediaSignup','SocialMediaSignup@sign');
 
 Route::get('/resetPassword/index', 'ResetPasswordController@index')->name('resetPassword.index');
 Route::post('/resetPassword/index', 'ResetPasswordController@sendMail');

@@ -13,6 +13,7 @@
 	<div class="wrap">
 		<h2>Sign Up</h2>
 		<form method="post" name="myForm">
+			@csrf
 			<input type="text" name="username" placeholder="Username" value="">
 			@foreach($errors->get('username') as $err)
         	<span style="color: red">{{$err}}</span> <br>
@@ -41,7 +42,8 @@
 			@foreach($errors->get('mobilenumber') as $err)
         	<span style="color: red">{{$err}}</span> <br>
         	@endforeach
-			<input type="submit" name="REGISTER" value="REGISTER"><br>
+			<input type="submit" name="REGISTER" value="REGISTER"><br><br>
+			<p><b>Or Signup with Social Media <a href="{{route('signup.socialMediaSignup')}}">here</a></b></p>
 			<p><b>Or Log In <a href="{{route('login.index')}}">here</a></b></p>
 		</form>
 	</div>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2020 at 04:15 PM
+-- Generation Time: Sep 17, 2020 at 11:40 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,22 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `businesstool_v4`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `activations`
---
-
-CREATE TABLE `activations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `completed` tinyint(1) NOT NULL DEFAULT 0,
-  `completed_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -108,7 +92,13 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cusid`, `name`, `design`, `email`, `mobile`, `reg_date`, `status`) VALUES
-('5', 'ZISHAD HOSSAIN LIMON', 'Teacher', 'zishadlimon@gmail.com', '01521428944', '2020-08-10 20:15:25', 1);
+('5', 'ZISHAD HOSSAIN LIMON', 'Teacher', 'zishadlimon@gmail.com', '01521428944', '2020-08-10 20:15:25', 1),
+('55', 'shanro', 'Customer', 'hasSha@gmail.com', '1778578380', '2020-08-14 08:49:46', 1),
+('555', 'hasib', 'customer', 'cus@gmail.com', '145454', '2020-08-14 08:58:08', 1),
+('5555', 'Md. Hasibul Islam', 'Customer', 'hasibasanto0@gmail.com', '01778578380', '2020-09-17 13:44:33', 0),
+('6', 'Md. Hasibul Islam', 'Customer', 'hasibsaanto0@gmail.com', '01778578380', '2020-09-17 14:28:08', 0),
+('7', 'shanto', 'Customer', 'hasibsaanto0@gmail.com', '01778578380', '2020-09-17 14:30:42', 0),
+('8', 'shanto', 'Customer', 'hasibsaannto0@gmail.com', '01778578380', '2020-09-17 14:32:50', 0);
 
 -- --------------------------------------------------------
 
@@ -132,10 +122,22 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOIN_DATE`, `ADDED_BY`) VALUES
-('1', 'TANVIR TANJUM SHOURAV', 1, 100000.00, '01515217820', 'tanjumtanvir@gmail.com', '2020-08-10 19:28:06', '1'),
-('2', 'HASIN SHANTO', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1'),
-('3', 'RAHATUL MAKSUD', 3, 15000.00, '01778578380', 'santo0@gmail.com', '2020-08-14 10:59:24', '1'),
-('4', 'MD. AL-AMIN', 4, 15000.00, '01251654544', 'anik@gmail.com', '2020-08-14 11:00:19', '1');
+('1', 'TANVIR TANJUM SHOURAV', 1, 100000.00, '01515217821', 'tanjumtanvir@gmail.com', '2020-08-10 19:28:06', '1'),
+('2', 'hasib', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1'),
+('3', 'shanto', 3, 15000.00, '01778578380', 'santo0@gmail.com', '2020-08-14 10:59:24', '1'),
+('4', 'Anik', 4, 15000.00, '01251654544', 'anik@gmail.com', '2020-08-14 11:00:19', '1'),
+('A1', 'JARIN TASNIM', 1, 150000.00, '01515217001', 'shama@gmail.com', '2020-08-11 21:50:02', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emp_image`
+--
+
+CREATE TABLE `emp_image` (
+  `IEmpID` varchar(15) DEFAULT NULL,
+  `EmpIMG` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -158,7 +160,14 @@ INSERT INTO `log_in` (`LID`, `SID`, `PASS`) VALUES
 ('2', 2, '2222'),
 ('3', 3, '3333'),
 ('4', 4, '4444'),
-('5', 5, '5555');
+('5', 5, '5555'),
+('55', 5, '5555'),
+('555', 5, '5555'),
+('5555', 0, '5555'),
+('6', 0, '6666'),
+('7', 0, '7777'),
+('8', 0, '8888'),
+('A1', 1, '12345');
 
 -- --------------------------------------------------------
 
@@ -177,8 +186,10 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1);
+(7, '2014_10_12_000000_create_users_table', 1),
+(8, '2014_10_12_100000_create_password_resets_table', 1),
+(9, '2020_09_16_184047_create_notice_m_table', 2),
+(10, '2020_09_16_185246_create_note_m_table', 3);
 
 -- --------------------------------------------------------
 
@@ -198,7 +209,31 @@ CREATE TABLE `note` (
 --
 
 INSERT INTO `note` (`NoteID`, `NoteName`, `OwnerID`, `Text`) VALUES
-(1, 'Test', '1', 'Test ');
+(1, 'Test', '1', 'Test '),
+(2, 'Laptop', '1', 'gcfdgfdg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `note_m`
+--
+
+CREATE TABLE `note_m` (
+  `NoteID` bigint(20) UNSIGNED NOT NULL,
+  `NoteName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `OwnerID` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `note_m`
+--
+
+INSERT INTO `note_m` (`NoteID`, `NoteName`, `OwnerID`, `Text`) VALUES
+(2, 'Test', '1', 'lalaalalalaslaslaslaskals'),
+(10, 'Test', '2', 'rgrg'),
+(11, 'fdfd', '2', 'rgrg'),
+(12, 'fdfd', '2', 'rgrg');
 
 -- --------------------------------------------------------
 
@@ -262,20 +297,6 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `persistences`
---
-
-CREATE TABLE `persistences` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `product`
 --
 
@@ -297,6 +318,7 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`PID`, `P_NAME`, `TYPE`, `AVAILABILITY`, `QUANTITY`, `BUY_PRICE`, `SELL_PRICE`, `MOD_BY`, `Add_PDate`) VALUES
 ('L101F', 'lll', 'Laptop', 'AVAILABLE', 0, 15000.00, 15500.00, '1', '2020-08-13 15:18:23'),
+('L102F', 'sf', 'Laptop', 'AVAILABLE', 117, 1500.00, 1600.00, 'A1', '2020-08-13 16:38:34'),
 ('L103F', 'fff', 'Laptop', 'AVAILABLE', 15, 2000.00, 2100.00, '1', '2020-08-13 16:38:34'),
 ('L203F', 'Asus', 'Keyboard', 'UNAVAILABLE', 5, 500.00, 600.00, '2', '2020-08-14 10:22:29');
 
@@ -316,55 +338,11 @@ CREATE TABLE `profile_image` (
 --
 
 INSERT INTO `profile_image` (`UID`, `IMAGE`) VALUES
-(1, 'PIC.jpg'),
-(2, 'BT_Default_avatar_011211.png'),
-(3, 'BT_Default_avatar_011211.png'),
-(4, 'BT_Default_avatar_011211.png'),
-(5, 'BT_Default_avatar_011211.png');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reminders`
---
-
-CREATE TABLE `reminders` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `completed` tinyint(1) NOT NULL DEFAULT 0,
-  `completed_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `roles`
---
-
-CREATE TABLE `roles` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `permissions` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `role_users`
---
-
-CREATE TABLE `role_users` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `role_id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(1, 'gbg'),
+(2, 'dgfg'),
+(3, 'ssda'),
+(4, 'sds'),
+(5, 'sds');
 
 -- --------------------------------------------------------
 
@@ -424,21 +402,6 @@ INSERT INTO `status` (`SID`, `DESIGNATION`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `throttle`
---
-
-CREATE TABLE `throttle` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -456,12 +419,6 @@ CREATE TABLE `users` (
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `activations`
---
-ALTER TABLE `activations`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `chat`
@@ -495,6 +452,12 @@ ALTER TABLE `employee`
   ADD KEY `ADDED_BY` (`ADDED_BY`);
 
 --
+-- Indexes for table `emp_image`
+--
+ALTER TABLE `emp_image`
+  ADD KEY `IEmpID` (`IEmpID`);
+
+--
 -- Indexes for table `log_in`
 --
 ALTER TABLE `log_in`
@@ -513,6 +476,12 @@ ALTER TABLE `migrations`
 ALTER TABLE `note`
   ADD PRIMARY KEY (`NoteID`),
   ADD KEY `OwnerID` (`OwnerID`);
+
+--
+-- Indexes for table `note_m`
+--
+ALTER TABLE `note_m`
+  ADD PRIMARY KEY (`NoteID`);
 
 --
 -- Indexes for table `notice`
@@ -535,13 +504,6 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `persistences`
---
-ALTER TABLE `persistences`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `persistences_code_unique` (`code`);
-
---
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -553,25 +515,6 @@ ALTER TABLE `product`
 --
 ALTER TABLE `profile_image`
   ADD PRIMARY KEY (`UID`);
-
---
--- Indexes for table `reminders`
---
-ALTER TABLE `reminders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `roles_slug_unique` (`slug`);
-
---
--- Indexes for table `role_users`
---
-ALTER TABLE `role_users`
-  ADD PRIMARY KEY (`user_id`,`role_id`);
 
 --
 -- Indexes for table `sales`
@@ -589,13 +532,6 @@ ALTER TABLE `status`
   ADD UNIQUE KEY `DESIGNATION` (`DESIGNATION`);
 
 --
--- Indexes for table `throttle`
---
-ALTER TABLE `throttle`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `throttle_user_id_index` (`user_id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -605,12 +541,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `activations`
---
-ALTER TABLE `activations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `chat`
@@ -628,13 +558,19 @@ ALTER TABLE `complain`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
-  MODIFY `NoteID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `NoteID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `note_m`
+--
+ALTER TABLE `note_m`
+  MODIFY `NoteID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `notice`
@@ -649,40 +585,16 @@ ALTER TABLE `orderlist`
   MODIFY `orderid` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `persistences`
---
-ALTER TABLE `persistences`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `profile_image`
 --
 ALTER TABLE `profile_image`
   MODIFY `UID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `reminders`
---
-ALTER TABLE `reminders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `roles`
---
-ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
   MODIFY `SLID` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `throttle`
---
-ALTER TABLE `throttle`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -720,6 +632,12 @@ ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`DID`) REFERENCES `status` (`SID`),
   ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`ADDED_BY`) REFERENCES `log_in` (`LID`),
   ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`EmpID`) REFERENCES `log_in` (`LID`);
+
+--
+-- Constraints for table `emp_image`
+--
+ALTER TABLE `emp_image`
+  ADD CONSTRAINT `emp_image_ibfk_1` FOREIGN KEY (`IEmpID`) REFERENCES `employee` (`EmpID`);
 
 --
 -- Constraints for table `log_in`
