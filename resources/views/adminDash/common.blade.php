@@ -21,7 +21,7 @@
 					<li><a><i class="fas fa-user-circle"></i>Profile<span class="sub_arrow"></span></a>
 						<ul>
 							<li><a href="{{route('aboutUser.index')}}"><i class="fas fa-address-card"></i>About {{session('LID')}}</a></li>
-							<li><a href="/changepassword"><i class="fas fa-key"></i>Change Password</a></li>
+							<li><a href="{{route('changepass.index')}}"><i class="fas fa-key"></i>Change Password</a></li>
 							<li><a href="{{route('logout.execute')}}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
 						</ul>
 					</li>

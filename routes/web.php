@@ -32,7 +32,6 @@ Route::get('/signup/socialMediaSignup/fbsub','SocialMediaSignupController@fbsubm
 Route::get('/signup/socialMediaSignup/fbres','SocialMediaSignupController@fbres');
 Route::get('/test','SocialMediaSignupController@fbres');
 
-
 Route::get('/resetPassword/index', 'ResetPasswordController@index')->name('resetPassword.index');
 Route::post('/resetPassword/index', 'ResetPasswordController@sendMail');
 Route::get('/resetPassword/resetPage/{email}/{token}','ResetPasswordController@resetPage')->name('resetPassword.reset');
@@ -46,6 +45,8 @@ Route::middleware(['SESS'])->group(function()
     Route::post('/aboutUser/editProfile', 'AboutUserController@saveEdit');
 
     Route::get('/logout', 'LogoutController@execute')->name('logout.execute');
+
+    Route::get('/changepassword', 'ChangePasswordController@index')->name('changepass.index');
 
     //ADMIN Session Validation Required (DONE)
     Route::group(['middleware'=>['ADMIN']],function()
