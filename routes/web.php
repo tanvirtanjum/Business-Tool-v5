@@ -41,14 +41,6 @@ Route::middleware(['SESS'])->group(function()
     Route::get('/aboutUser', 'AboutUserController@index')->name('aboutUser.index');
     Route::get('/aboutUser/editProfile', 'AboutUserController@edit')->name('aboutUser.editProfile');
     Route::post('/aboutUser/editProfile', 'AboutUserController@saveEdit');
-    
-    Route::get('salesHistory','SalesHistory@index')->name('salesHistory.index');
-
-    Route::get('notes','Notes@index')->name('notes.index');
-    Route::post('notes','Notes@note');
-
-
-    Route::get('notice','Notice@index')->name('notice.index');
 
     Route::get('/logout', 'LogoutController@execute')->name('logout.execute');
 
@@ -90,6 +82,15 @@ Route::middleware(['SESS'])->group(function()
     //COMMON(ADMIN,MANAGER,SALESMAN) Session Validation Required (DONE)
     Route::group(['middleware'=>['ADMIN_MANAGER_SALESMAN']],function()
     {
-      ///CODE
+      Route::get('salesHistory','SalesHistory@index')->name('salesHistory.index');
+    });
+
+    //COMMON(ADMIN,MANAGER,SALESMAN,DELIVERYMAN) Session Validation Required (DONE)
+    Route::group(['middleware'=>['ADMIN_MANAGER_SALESMAN_DELIVERYMAN']],function()
+    {
+      Route::get('notes','NotesController@index')->name('notes.index');
+      Route::post('notes','NotesController@note');
+
+      Route::get('notice','NoticeController@index')->name('notice.index');
     });
 });

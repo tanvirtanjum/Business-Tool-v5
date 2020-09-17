@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'DELIVERYMAN'=>	\App\Http\Middleware\VerifyTypeDeliveryman::class,
         'CUSTOMER'=>	\App\Http\Middleware\VerifyTypeCustomer::class,
         'ADMIN_MANAGER_SALESMAN'=>	\App\Http\Middleware\VerifyTypeAdminManagerSalesman::class,
+        'ADMIN_MANAGER_SALESMAN_DELIVERYMAN'=>	\App\Http\Middleware\VerifyTypeAdminManagerSalesmanDeliveryman::class,
     ];
 
     /**
