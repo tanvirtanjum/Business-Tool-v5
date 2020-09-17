@@ -17,11 +17,11 @@
 		<title>Notes</title>
 		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/notes.css') }}">
-    	<script src="{{ URL::to('js/saveNotes.css') }}"></script>
+    	<script src="{{ URL::to('js/saveNotes.js') }}"></script>
     	
 	</head>
 	<body>
-		<div class="box" id="notes">
+		<div class="box">
 			<h1>Take your Note</h1>
 			<form method='post'>
 				@csrf

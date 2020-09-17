@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class SalesHistory extends Controller
 {
     public function index()
     {
-        return view('salesHistory.index');
+        $history=DB::table('sales')->get();
+        return view('salesHistory.index')->with('history',$history);
     }
 }
