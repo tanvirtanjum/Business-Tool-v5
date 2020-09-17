@@ -57,6 +57,8 @@ class LoginController extends Controller
 
         if(session()->get('SID') == 0)
         {
+          $request->session()->forget('LID');
+          $request->session()->forget('SID');
           $request->session()->flash('_alert', 'ACCESS DENIED');
           return redirect()->route('login.index');
         }
