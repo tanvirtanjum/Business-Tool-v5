@@ -28,9 +28,9 @@ Route::post('/login', 'LoginController@login_request');
 Route::get('/signup', 'SignupController@index')->name('signup.index');
 Route::post('/signup', 'SignupController@create');
 Route::get('/signup/socialMediaSignup','SocialMediaSignupController@index')->name('signup.socialMediaSignup');
-Route::get('/signup/socialMediaSignup/fb','SocialMediaSignupController@fbbutton');
 Route::get('/signup/socialMediaSignup/fbsub','SocialMediaSignupController@fbsubmit');
 Route::get('/signup/socialMediaSignup/fbres','SocialMediaSignupController@fbres');
+Route::get('/test','SocialMediaSignupController@fbres');
 
 
 Route::get('/resetPassword/index', 'ResetPasswordController@index')->name('resetPassword.index');

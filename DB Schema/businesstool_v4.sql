@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2020 at 11:40 AM
+-- Generation Time: Sep 17, 2020 at 03:35 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -78,11 +78,11 @@ INSERT INTO `complain` (`cID`, `sub`, `OwnerID`, `Text`) VALUES
 --
 
 CREATE TABLE `customer` (
-  `cusid` varchar(15) NOT NULL,
+  `cusid` varchar(200) NOT NULL,
   `name` varchar(100) NOT NULL,
   `design` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `mobile` varchar(50) NOT NULL,
+  `mobile` varchar(50) DEFAULT NULL,
   `reg_date` datetime DEFAULT current_timestamp(),
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -92,6 +92,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cusid`, `name`, `design`, `email`, `mobile`, `reg_date`, `status`) VALUES
+('1619558094890237', 'Hasib Shanto', 'Customer', 'hasibsanto0@gmail.com', '', '2020-09-17 19:31:43', 1),
 ('5', 'ZISHAD HOSSAIN LIMON', 'Teacher', 'zishadlimon@gmail.com', '01521428944', '2020-08-10 20:15:25', 1),
 ('55', 'shanro', 'Customer', 'hasSha@gmail.com', '1778578380', '2020-08-14 08:49:46', 1),
 ('555', 'hasib', 'customer', 'cus@gmail.com', '145454', '2020-08-14 08:58:08', 1),
@@ -146,7 +147,7 @@ CREATE TABLE `emp_image` (
 --
 
 CREATE TABLE `log_in` (
-  `LID` varchar(15) NOT NULL,
+  `LID` varchar(200) NOT NULL,
   `SID` int(1) NOT NULL,
   `PASS` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -157,6 +158,7 @@ CREATE TABLE `log_in` (
 
 INSERT INTO `log_in` (`LID`, `SID`, `PASS`) VALUES
 ('1', 1, '1111'),
+('1619558094890237', 5, '1234'),
 ('2', 2, '2222'),
 ('3', 3, '3333'),
 ('4', 4, '4444'),
