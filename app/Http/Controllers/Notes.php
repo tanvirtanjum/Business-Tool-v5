@@ -72,7 +72,7 @@ class Notes extends Controller
 
             if(Input::get('PRINT'))
             {
-                //return redirect()->route('notes.index');
+                return redirect()->route('notes.index');
             }
          }
     }

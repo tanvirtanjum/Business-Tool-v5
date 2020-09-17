@@ -25,12 +25,12 @@
 			<h1>Take your Note</h1>
 			<form method='post'>
 				@csrf
-			<input type="text" name="name" id="name" placeholder="Note name" value="{{$info1[0]->NoteName}}">
+			<input type="text" name="name" id="name" placeholder="Note name" value="{{$info[0]->NoteName}}">
         <input type="Submit" name="PUSH" value="PUSH">
 				<input style="margin-left: 80px;width: 20%;" type="text" placeholder="Search by id" name="search">
 			<input type="hidden" name="NoteID" value="{{$info[0]->NoteID}}">
 				<input style="margin-left: 5px;width: 15%;" type="Submit" name="SEE" value="SEE"><br>
-			<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20">{{$info1[0]->Text}}</textarea><br>
+			<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20">{{$info[0]->Text}}</textarea><br>
 				<input type="submit" name="REFRESH" value="REFRESH">
         <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT" onclick="return saveFile()">
 				<br><br>
