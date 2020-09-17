@@ -51,6 +51,9 @@ Route::middleware(['SESS'])->group(function()
     Route::group(['middleware'=>['ADMIN']],function()
     {
       Route::get('/adminDash', 'AdminDashController@index')->name('adminDash.index');
+
+      Route::get('/adminDash/empManageAdmin', 'AdminDashController@viewAdminEmployeeManage')->name('adminDash.empManageAdmin.index');
+      Route::post('/adminDash/empManageAdmin', 'AdminDashController@actionAdminEmployeeManage');
     });
 
     //MANAGER Session Validation Required (DONE)
