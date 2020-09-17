@@ -33,7 +33,7 @@
 				<input style="margin-left: 5px;width: 15%;" type="Submit" name="SEE" value="SEE"><br>
 			<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20">{{Session::get('Text')}}</textarea><br>
 				<input type="submit" name="REFRESH" value="REFRESH">
-        <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT" onclick="return saveFile()">
+        <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT" onclick="return saveFile()" {{Session::get('udBTN')}}>
 				<br><br>
 				<input type="submit" name="UPDATE" value="UPDATE" {{Session::get('udBTN')}}>
         <input style="margin-left: 30px;" type="submit" name="DELETE" value="DELETE" {{Session::get('udBTN')}}><br><br>
