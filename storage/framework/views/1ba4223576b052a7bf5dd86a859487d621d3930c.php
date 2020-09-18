@@ -7,23 +7,23 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Manage Employees</title>
       <!--<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-      <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">-->
+      <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
+      <script src="assets/js/empvalid.js"></script>-->
       <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
       <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/manage.css')); ?>">
-      <script src="assets/js/empvalid.js"></script>
   </head>
 
   <body>
       <div class="box">
         <form method="POST">
-          <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="<?php echo e(Session::get('a')); ?>">
+          <input style="width: 15%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="<?php echo e(Session::get('a')); ?>">
           <span style='color: red;'> <?php echo html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8'); ?> </span>
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
           <p>Employee ID</p>
           <input type="text" id="empId" name="empId" placeholder="Enter Employee Id" value="<?php echo e(Session::get('a')); ?>" <?php echo e(Session::get('iFLD')); ?>>
           <p>Name</p>
-          <input type="text" id="empName" name="empName" placeholder="Enter Employee Name" value="<?php echo e(Session::get('b')); ?>" >
+          <input type="text" id="empName" name="empName" placeholder="Enter Employee Name" value="<?php echo e(Session::get('b')); ?>">
           <p>Designation</p>
           <select id="designation" name="designation">
               <option value="0" <?php if(Session::get('c') == 0): ?><?php echo e('selected'); ?><?php endif; ?>>--SELECT--</option>
@@ -62,7 +62,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id='tab'>
                   <?php $__currentLoopData = $table; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                       <td align='middle'><?php echo e($content->EmpID); ?></td>

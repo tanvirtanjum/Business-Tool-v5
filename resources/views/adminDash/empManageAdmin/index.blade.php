@@ -7,16 +7,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Manage Employees</title>
       <!--<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-      <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">-->
+      <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
+      <script src="assets/js/empvalid.js"></script>-->
       <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
       <link rel="stylesheet" type="text/css" href="{{ URL::to('css/manage.css') }}">
-      <script src="assets/js/empvalid.js"></script>
   </head>
 
   <body>
       <div class="box">
         <form method="POST">
-          <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="{{Session::get('a')}}">
+          <input style="width: 15%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="{{Session::get('a')}}">
           <span style='color: red;'> {!! html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8') !!} </span>
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
@@ -62,7 +62,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id='tab'>
                   @foreach($table as $content)
                     <tr>
                       <td align='middle'>{{$content->EmpID }}</td>
