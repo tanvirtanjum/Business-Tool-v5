@@ -16,6 +16,7 @@
   <body>
       <div class="box">
         <form method="POST">
+          <span style='color:red;'><?php echo e(Session::get('dbERR')); ?></span>
           <input style="width: 15%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="<?php echo e(Session::get('a')); ?>">
           <span style='color: red;'> <?php echo html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8'); ?> </span>
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
@@ -26,7 +27,7 @@
           <input type="text" id="empName" name="empName" placeholder="Enter Employee Name" value="<?php echo e(Session::get('b')); ?>">
           <p>Designation</p>
           <select id="designation" name="designation">
-              <option value="0" <?php if(Session::get('c') == 0): ?><?php echo e('selected'); ?><?php endif; ?>>--SELECT--</option>
+              <option value="" <?php if(Session::get('c') == 0): ?><?php echo e('selected'); ?><?php endif; ?>>--SELECT--</option>
               <option id="admin" value="1" <?php if(Session::get('c') == 1): ?><?php echo e('selected'); ?><?php endif; ?>>Admin</option>
               <option id="manager" value="2" <?php if(Session::get('c') == 2): ?><?php echo e('selected'); ?><?php endif; ?>>Manager</option>
               <option id="salesman" value="3" <?php if(Session::get('c') == 3): ?><?php echo e('selected'); ?><?php endif; ?>>SalesMan</option>

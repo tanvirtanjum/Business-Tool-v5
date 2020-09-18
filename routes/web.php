@@ -54,8 +54,13 @@ Route::middleware(['SESS'])->group(function()
     {
       Route::get('/adminDash', 'AdminDashController@index')->name('adminDash.index');
 
-      Route::get('/adminDash/empManageAdmin', 'AdminDashController@viewAdminEmployeeManage')->name('adminDash.empManageAdmin.index');
-      Route::post('/adminDash/empManageAdmin', 'AdminDashController@actionAdminEmployeeManage');
+      Route::get('/adminDash/EmployeeManage-Admin', 'AdminDashController@viewAdminEmployeeManage')->name('adminDash.empManageAdmin.index');
+      Route::post('/adminDash/EmployeeManage-Admin', 'AdminDashController@actionAdminEmployeeManage');
+
+      Route::get('/adminDash/ProductManage-Admin', 'AdminDashController@viewAdminProductManage')->name('adminDash.prodManageAdmin.index');
+      Route::post('/adminDash/ProductManage-Admin', 'AdminDashController@actionAdminProductManage');
+
+      Route::get('/adminDash/CustomerManage-Admin', 'AdminDashController@viewAdminCustomerManage')->name('adminDash.cusManageAdmin.index');
     });
 
     //MANAGER Session Validation Required (DONE)

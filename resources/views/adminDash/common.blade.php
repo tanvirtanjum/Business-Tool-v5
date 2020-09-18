@@ -28,8 +28,8 @@
 					<li><a><i class="fas fa-tasks"></i>Management<span class="sub_arrow"></span></a>
 						<ul>
 							<li><a href="{{route('adminDash.empManageAdmin.index')}}"><i class="fas fa-user-circle"></i>Employee Management</a></li>
-							<li><a href="/adminDash/customerManageAdmin"><i class="fas fa-users"></i>Customer Management</a></li>
-							<li><a href="/adminDash/prodManageAdmin"><i class="fab fa-product-hunt"></i>Product Management</a></li>
+							<li><a href="{{route('adminDash.cusManageAdmin.index')}}"><i class="fas fa-users"></i>Customer Management</a></li>
+							<li><a href="{{route('adminDash.prodManageAdmin.index')}}"><i class="fab fa-product-hunt"></i>Product Management</a></li>
 							<li><a href="/adminDash/regManageAdmin"><i class="fas fa-registered"></i>Pending Registrations</a></li>
 							<!--<li><a href="/adminDash/orderManageAdmin"><i class="fas fa-cart-plus"></i>Pending Orders</a></li>-->
 							<li><a href="/adminDash/NoticeManageAdmin"><i class="fas fa-flag"></i>Notice Manage</a></li>

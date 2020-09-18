@@ -1,4 +1,4 @@
-@include('adminDash.common')
+<?php echo $__env->make('adminDash.common', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -8,8 +8,8 @@
       <title>Manage Customer</title>
       <!--<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
       <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">-->
-      <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ URL::to('css/manage.css') }}">
+      <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/manage.css')); ?>">
   </head>
 
   <body>
@@ -50,20 +50,21 @@
                     </tr>
                 </thead>
                 <tbody id='tab'>
-                  @foreach($table as $content)
+                  <?php $__currentLoopData = $table; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                      <td align='middle'>{{$content->cusid }}</td>
-                      <td align='middle'>{{$content->name}}</td>
-                      <td align='middle'>{{$content->design}}</td>
-                      <td align='middle'>{{$content->email}}</td>
-                      <td align='middle'>{{$content->mobile}}</td>
-                      <td align='middle'>{{$content->reg_date}}</td>
-                      <td align='middle'>@if($content->status == 1){!! html_entity_decode('&#9989;', ENT_QUOTES, 'UTF-8') !!}@else{!! html_entity_decode('&#9940;', ENT_QUOTES, 'UTF-8') !!}@endif</td>
+                      <td align='middle'><?php echo e($content->cusid); ?></td>
+                      <td align='middle'><?php echo e($content->name); ?></td>
+                      <td align='middle'><?php echo e($content->design); ?></td>
+                      <td align='middle'><?php echo e($content->email); ?></td>
+                      <td align='middle'><?php echo e($content->mobile); ?></td>
+                      <td align='middle'><?php echo e($content->reg_date); ?></td>
+                      <td align='middle'><?php if($content->status == 1): ?><?php echo html_entity_decode('&#9989;', ENT_QUOTES, 'UTF-8'); ?><?php else: ?><?php echo html_entity_decode('&#9940;', ENT_QUOTES, 'UTF-8'); ?><?php endif; ?></td>
                     </tr>
-                  @endforeach
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
     </div>
   </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\ATP3\Final Project\Business Tool v5\trunk\resources\views/adminDash/customerManageAdmin/index.blade.php ENDPATH**/ ?>

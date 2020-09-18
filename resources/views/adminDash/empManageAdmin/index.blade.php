@@ -16,6 +16,7 @@
   <body>
       <div class="box">
         <form method="POST">
+          <span style='color:red;'>{{Session::get('dbERR')}}</span>
           <input style="width: 15%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="{{Session::get('a')}}">
           <span style='color: red;'> {!! html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8') !!} </span>
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
@@ -26,7 +27,7 @@
           <input type="text" id="empName" name="empName" placeholder="Enter Employee Name" value="{{Session::get('b')}}">
           <p>Designation</p>
           <select id="designation" name="designation">
-              <option value="0" @if(Session::get('c') == 0){{'selected'}}@endif>--SELECT--</option>
+              <option value="" @if(Session::get('c') == 0){{'selected'}}@endif>--SELECT--</option>
               <option id="admin" value="1" @if(Session::get('c') == 1){{'selected'}}@endif>Admin</option>
               <option id="manager" value="2" @if(Session::get('c') == 2){{'selected'}}@endif>Manager</option>
               <option id="salesman" value="3" @if(Session::get('c') == 3){{'selected'}}@endif>SalesMan</option>
