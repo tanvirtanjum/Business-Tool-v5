@@ -47,6 +47,7 @@ Route::middleware(['SESS'])->group(function()
     Route::get('/logout', 'LogoutController@execute')->name('logout.execute');
 
     Route::get('/changepassword', 'ChangePasswordController@index')->name('changepass.index');
+    Route::post('/changepassword', 'ChangePasswordController@requestChange');
 
     //ADMIN Session Validation Required (DONE)
     Route::group(['middleware'=>['ADMIN']],function()

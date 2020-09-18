@@ -18,7 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::to('css/notes.css') }}">
     	<script src="{{ URL::to('js/saveNotes.js') }}"></script>
-    	
+
 	</head>
 	<body>
 		<div class="box">
@@ -58,9 +58,8 @@
 							<td>{{$info[$i]->NoteID}}</td>
 							<td>{{$info[$i]->NoteName}}</td>
 						</tr>
-           				@endfor
+           	@endfor
 					</tbody>
-
 				</table>
 			</div>
 		</div>

@@ -32,8 +32,8 @@
 			<span id="err"></span>
 			<p>Confirm New Password</p>
 			<input type="password" name="confirmnewpassword" placeholder="Confirm New password" value=""><br>
-			<span id="err1"></span><br>
-			<input type="submit" name="save" value="Proceed"><span></span>
+			<div align='middle'> <span id="err1"><?php echo e(Session::get('err')); ?></span> </div> <br>
+			<input type="submit" name="PROCEED" value="Proceed"><span></span>
 		</form>
 	</div>
 </body>

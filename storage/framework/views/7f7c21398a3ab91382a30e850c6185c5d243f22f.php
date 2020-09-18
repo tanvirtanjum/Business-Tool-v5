@@ -17,7 +17,7 @@
 		<title>Notes</title>
 		<link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
 		<link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/notes.css')); ?>">
-    	<script src="<?php echo e(URL::to('js/saveNotes.css')); ?>"></script>
+    	<script src="<?php echo e(URL::to('js/saveNotes.js')); ?>"></script>
     	
 	</head>
 	<body>
@@ -25,17 +25,18 @@
 			<h1>Take your Note</h1>
 			<form method='post'>
 				<?php echo csrf_field(); ?>
-			<input type="text" name="name" id="name" placeholder="Note name" value="<?php echo e($info[0]->NoteName); ?>">
+			<input type="text" name="name" id="name" placeholder="Note name" value="<?php echo e(Session::get('NoteName')); ?>">
         <input type="Submit" name="PUSH" value="PUSH">
 				<input style="margin-left: 80px;width: 20%;" type="text" placeholder="Search by id" name="search">
-			<input type="hidden" name="NoteID" value="<?php echo e($info[0]->NoteID); ?>">
+			<input type="hidden" name="NoteID" value="<?php echo e(Session::get('NoteID')); ?>">
+			<span style='color: red;'> <?php echo html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8'); ?> </span>
 				<input style="margin-left: 5px;width: 15%;" type="Submit" name="SEE" value="SEE"><br>
-			<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20"><?php echo e($info[0]->Text); ?></textarea><br>
+			<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20"><?php echo e(Session::get('Text')); ?></textarea><br>
 				<input type="submit" name="REFRESH" value="REFRESH">
-        <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT" onclick="return saveFile()">
+        <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT" onclick="return saveFile()" <?php echo e(Session::get('udBTN')); ?>>
 				<br><br>
-				<input type="submit" name="UPDATE" value="UPDATE" >
-        <input style="margin-left: 30px;" type="submit" name="DELETE" value="DELETE"><br><br>
+				<input type="submit" name="UPDATE" value="UPDATE" <?php echo e(Session::get('udBTN')); ?>>
+        <input style="margin-left: 30px;" type="submit" name="DELETE" value="DELETE" <?php echo e(Session::get('udBTN')); ?>><br><br>
 		<?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $err): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 		<span style="color: red"><?php echo e($err); ?> <br></span>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

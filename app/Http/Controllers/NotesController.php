@@ -23,10 +23,10 @@ class NotesController extends Controller
     else
     {
       $request->session()->flash('udBTN', 'disabled');
-    }  
-    
+    }
+
     $info = DB::table('note_m')->where('OwnerID','=',$request->session()->get('LID'))->get();
-      return view('notes.index')->with('info',$info);
+    return view('notes.index')->with('info',$info);
   }
 
   public function note(Request $request)
@@ -57,7 +57,7 @@ class NotesController extends Controller
             return redirect()->route('notes.index');
         }
 
-          
+
       }
 
       if(Input::get('PUSH'))
