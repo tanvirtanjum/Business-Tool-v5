@@ -15,26 +15,26 @@
   <body>
       <div class="box">
         <form method="POST">
-          <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
+          <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
           <p>Customer ID</p>
-          <input type="text" name="Id" placeholder="Customer Id" value="" readonly>
+          <input type="text" name="Id" placeholder="Customer Id" value="{{Session::get('a')}}" readonly>
           <p>Name</p>
-          <input type="text" name="Name" placeholder="Customer Name" value="" readonly>
+          <input type="text" name="Name" placeholder="Customer Name" value="{{Session::get('b')}}" readonly>
           <p>Designation</p>
-          <input type="text" name="Designation" placeholder="Customer Designation" value="" readonly>
+          <input type="text" name="Designation" placeholder="Customer Designation" value="{{Session::get('c')}}" readonly>
           <p>Mobile No.</p>
-          <input type="text" name="MobileNo" placeholder="Customer Mobile No" value="" readonly>
+          <input type="text" name="MobileNo" placeholder="Customer Mobile No" value="{{Session::get('d')}}" readonly>
           <p>E-mail</p>
-          <input type="email" name="Email" placeholder="Customer Email" value="" readonly>
+          <input type="email" name="Email" placeholder="Customer Email" value="{{Session::get('e')}}" readonly>
           <p>Join Date</p>
-          <input type="text" name="JoinDate" value="" readonly>
+          <input type="text" name="JoinDate" value="{{Session::get('f')}}" readonly>
           <!--<p>Added By</p>
           input type="text" name="AddedBy"  value="" disabled><br>-->
           <br>
           <input type="submit" name="REFRESH" value="REFRESH">
-          <input type="submit" name="">
+          <input type="submit" name="{{Session::get('action')}}" value="{{Session::get('action')}}" {{Session::get('udBTN')}}>
       </form>
           <div align="right" class="table">
             <table class="content-table">

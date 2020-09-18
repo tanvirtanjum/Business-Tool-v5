@@ -405,13 +405,12 @@ class AdminDashController extends Controller
     }
   }
 
+  //CUSTOMER ACESSS MANAGEMENT
   function viewAdminCustomerManage(Request $request)
   {
     if($request->session()->has('con1'))
     {
       $request->session()->flash('udBTN', $request->session()->get('con1'));
-      $request->session()->flash('iBTN', $request->session()->get('con2'));
-      $request->session()->flash('iFLD', $request->session()->get('con3'));
       $request->session()->flash('action', $request->session()->get('con4'));
     }
     else
@@ -424,5 +423,91 @@ class AdminDashController extends Controller
   	return view('adminDash.customerManageAdmin.index')->with('table', $table);
   }
 
-  
+  function actionAdminCustomerManage(Request $request)
+  {
+    if($request->SEARCH)
+    {
+      $validate = Validator:: make($request->all(),[
+          'SearchID' => 'required'
+      ]);
+      if($validate->fails())
+      {
+        $request->session()->flash('srchERR', '&#10033;');
+        $request->session()->flash('con1', 'disabled');
+        $request->session()->flash('con4', 'ACTION');
+        //return redirect()->route('adminDash.empManageAdmin.index');
+        return back()->with('errors',$validate->errors())->withInput();
+      }
+      else
+      {
+        $content = DB::table('customer')->where('cusid','=', $request->SearchID)->get();
+
+        if(count($content) > 0)
+        {
+          $request->session()->flash('a', $content[0]->cusid);
+          $request->session()->flash('b', $content[0]->name);
+          $request->session()->flash('c', $content[0]->design);
+          $request->session()->flash('d', $content[0]->email);
+          $request->session()->flash('e', $content[0]->mobile);
+          $request->session()->flash('f', $content[0]->reg_date);
+          $request->session()->flash('con1', '');
+
+          if($content[0]->status == 0)
+          {
+            $request->session()->flash('con4', 'ALLOW');
+          }
+          else if($content[0]->status == 1)
+          {
+            $request->session()->flash('con4', 'RESTRICT');
+          }
+          else
+          {
+            $request->session()->flash('con4', 'ACTION');
+          }
+
+          return redirect()->route('adminDash.cusManageAdmin.index');
+        }
+        else
+        {
+          $request->session()->flash('srchERR', '&#10033;');
+          $request->session()->flash('con1', 'disabled');
+          $request->session()->flash('con4', 'ACTION');
+
+          return redirect()->route('adminDash.cusManageAdmin.index');
+        }
+      }
+    }
+
+    if($request->REFRESH)
+    {
+      return redirect()->route('adminDash.cusManageAdmin.index');
+    }
+
+    if($request->RESTRICT)
+    {
+      $check =  DB::table('log_in')->where('LID','=', $request->Id)->get();
+
+      if(count($check) > 0)
+      {
+        DB::table('log_in')->where('LID', $request->Id)->update(['SID' => '0']);
+        DB::table('customer')->where('cusid', $request->Id)->update(['status' => '0']);
+
+        return redirect()->route('adminDash.cusManageAdmin.index');
+      }
+    }
+
+    if($request->ALLOW)
+    {
+      $check =  DB::table('log_in')->where('LID','=', $request->Id)->get();
+
+      if(count($check) > 0)
+      {
+        DB::table('log_in')->where('LID', $request->Id)->update(['SID' => '5']);
+        DB::table('customer')->where('cusid', $request->Id)->update(['status' => '1']);
+
+        return redirect()->route('adminDash.cusManageAdmin.index');
+      }
+    }
+  }
+
 }
