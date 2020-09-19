@@ -15,10 +15,12 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/history.css') }}">
     <script src="{{ URL::to('js/printSalesHistory.js') }}"></script>
+    <script src="{{ URL::to('js/jquery.js') }}"></script>
 </head>
 <body>
     <div class="table">
         <h1>Sales History</h1>
+        <input type="text" name="search" id="search" onkeyup="search()" placeholder="Ajax Search">
         <div class=tab1 id="table">
             <table class="content-table">
                 <thead>
@@ -34,7 +36,7 @@
                         <th>Sell_SDate</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="">
                     @for($i=0; $i != count($history); $i++)
 						<tr>
 							<td>{{$history[$i]->SLID}}</td>
@@ -55,5 +57,9 @@
         <hr>
         <input style="margin-top: 5px;margin-left: 10px;" name="PRINT" id="PRINT" onclick="savePDF()" type="submit" value="Print PDF">
     </div>
+    <script>
+        
+        }
+    </script>
 </body>
 </html>

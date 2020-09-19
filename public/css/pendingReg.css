@@ -107,10 +107,10 @@ h1 {
     color: #000;
 }
 .table {
-    width: 760px;
+    width: 780px;
     height: 550px;
     top: 51%;
-    left: 64%;
+    left: 52%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;

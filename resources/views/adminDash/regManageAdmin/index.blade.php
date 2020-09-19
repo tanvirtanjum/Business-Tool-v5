@@ -16,7 +16,7 @@
 <body>
     <div class="box">
         <form method="POST">
-            <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
+            <input style="width: 20%; margin-left: 430px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
             <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
             <!--<p>Customer ID</p>

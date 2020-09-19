@@ -85,6 +85,9 @@ Route::middleware(['SESS'])->group(function()
     Route::group(['middleware'=>['SALESMAN']],function()
     {
       Route::get('/salesmanDash', 'SalesmanDashController@index')->name('salesmanDash.index');
+
+      Route::get('/salesmanDash/sellProducts', 'SalesmanDashController@view')->name('salesmanDash.sellProducts.index');
+      Route::post('/salesmanDash/sellProducts', 'SalesmanDashController@action');
     });
 
     //DELIVERYMAN Session Validation Required (DONE)
@@ -103,6 +106,7 @@ Route::middleware(['SESS'])->group(function()
     Route::group(['middleware'=>['ADMIN_MANAGER_SALESMAN']],function()
     {
       Route::get('salesHistory','SalesHistory@index')->name('salesHistory.index');
+      //Route::get('salesHistory/action','SalesHistory@action');
     });
 
     //COMMON(ADMIN,MANAGER,SALESMAN,DELIVERYMAN) Session Validation Required (DONE)
