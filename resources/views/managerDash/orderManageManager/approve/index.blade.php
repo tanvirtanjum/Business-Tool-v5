@@ -10,6 +10,7 @@
 </head>
 <body>
   <form method="post">
+    @csrf
     <div class="box">
         <h1>Confirm Order</h1>
         <hr>

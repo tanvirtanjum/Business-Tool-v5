@@ -58,7 +58,7 @@
 							<td>{{$info[$i]->NoteID}}</td>
 							<td>{{$info[$i]->NoteName}}</td>
 						</tr>
-           	@endfor
+           				@endfor
 					</tbody>
 				</table>
 			</div>

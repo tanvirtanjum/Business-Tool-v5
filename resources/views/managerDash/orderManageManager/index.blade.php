@@ -21,11 +21,22 @@
                     <th>Date</th>
                     <th>By</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-            
-          </tbody>
+                @for($i=0; $i != count($info); $i++)
+					<tr>
+					    <td>{{$info[$i]->orderid}}</td>	
+					    <td>{{$info[$i]->prodid}}</td>	
+					    <td>{{$info[$i]->quant}}</td>	
+					    <td>{{$info[$i]->ammout}}</td>	
+					    <td>{{$info[$i]->ord_date}}</td>	
+                        <td>{{$info[$i]->orderby}}</td>
+                        <td><a href="{{route('managerDash.orderManageManager.approve.index')}}"><input type="submit" value="Approve"></a><td>	
+					</tr>
+           		@endfor
+            </tbody>
         </table>
     </div>
 </body>
