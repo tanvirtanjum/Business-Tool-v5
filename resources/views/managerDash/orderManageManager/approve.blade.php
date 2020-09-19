@@ -15,17 +15,17 @@
         <h1>Confirm Order</h1>
         <hr>
         <p>Order ID</p>
-        <input type="text" name="a" value="" readonly>
+        <input type="text" name="a" value="{{$info[0]->orderid}}" readonly>
         <p>Product ID</p>
-        <input type="text" name="name" value="" readonly>
+        <input type="text" name="n" value="{{$info[0]->prodid}}" readonly>
         <p>Quantity</p>
-        <input type="text" name="type" value="" readonly>
+        <input type="text" name="t" value="{{$info[0]->quant}}" readonly>
         <p>Cash</p>
-        <input type="text" name="aq" value="" readonly>
+        <input type="text" name="am" value="{{$info[0]->ammout}}" readonly>
         <p>Order Date</p>
-        <input type="text" name="c" value="" readonly>
+        <input type="text" name="od" value="{{$info[0]->ord_date}}" readonly>
         <p>Delivery By</p>
-        <input type="text" placeholder="Enter Delivery Man ID." name="b"><br>
+        <input type="text" placeholder="Enter Delivery Man ID." name="db"><br>
         <input type="submit" value="CONFIRM">
     </div>
   </form>

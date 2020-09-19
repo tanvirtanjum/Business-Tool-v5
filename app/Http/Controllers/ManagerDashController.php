@@ -189,12 +189,14 @@ class ManagerDashController extends Controller
     }
     public function viewApprove(Request $request)
     {
-        return route('managerDash.orderManageManager.approve.index');
+        $info = DB::table('orderlist')->where('orderid','=',$request->orderid)->get();
+        return view('managerDash.orderManageManager.approve')->with('info',$info);
     }
     //post
-    function verify(Request $request)
+    public function approve(Request $request)
     {
-
+        DB::table('orderlist')->where('orderid','=',$request->a)->update(['stat'=>'1', 'deliveryby'=>$request->db]);
+        return view('managerDash.index');
     }
 
 }

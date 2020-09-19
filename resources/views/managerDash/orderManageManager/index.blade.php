@@ -33,9 +33,14 @@
 					    <td>{{$info[$i]->ammout}}</td>	
 					    <td>{{$info[$i]->ord_date}}</td>	
                         <td>{{$info[$i]->orderby}}</td>
-                        <td><a href="{{route('managerDash.orderManageManager.approve.index')}}"><input type="submit" value="Approve"></a><td>	
+                        <td><a href="{{url('managerDash/orderManageManager/approve/'.$info[$i]->orderid.'/')}}"><input type="submit" value="Approve"></a><td>	
 					</tr>
-           		@endfor
+                @endfor
+                @if(count($info)==0)
+                    <tr>
+                        <td colspan="7" align="center">NO DATA</td>
+                    </tr>
+                @endif
             </tbody>
         </table>
     </div>

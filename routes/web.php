@@ -74,7 +74,8 @@ Route::middleware(['SESS'])->group(function()
 
       Route::get('/managerDash/orderManageManager', 'ManagerDashController@viewOrderManager')->name('managerDash.orderManageManager.index');
 
-      Route::get('/managerDash/orderManageManager/approve/', 'ManagerDashController@viewApprove')->name('managerDash.orderManageManager.approve.index');
+      Route::get('/managerDash/orderManageManager/approve/{orderid}', 'ManagerDashController@viewApprove')->name('managerDash.orderManageManager.approve');
+      Route::post('/managerDash/orderManageManager/approve/{orderid}', 'ManagerDashController@approve');
 
     });
 
