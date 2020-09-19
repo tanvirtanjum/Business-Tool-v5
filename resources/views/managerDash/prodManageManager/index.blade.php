@@ -46,10 +46,10 @@
                 <input type="text" name="by" value="{{Session::get('MB')}}" readonly>
                 <p>Adding Date</p>
                 <input type="text" name="addingDate" value="{{Session::get('APD')}}" readonly><br>
-                <input style="margin-left: 350px;"type="submit" name="REFRESH" value="REFRESH">
+                <input style="margin-left: 400px;"type="submit" name="REFRESH" value="REFRESH">
                 <input type="submit" name="INSERT" value="INSERT">
                 <input type="submit" name="UPDATE"value="UPDATE" {{Session::get('udBTN')}}>
-                <input type="submit" name="DELETE" value="DELETE" {{Session::get('udBTN')}}>
+                {{-- <input type="submit" name="DELETE" value="DELETE" {{Session::get('udBTN')}}> --}}
                 <input type="submit" name="PRINT" value="PRINT" onclick="savePDF()">
             </form>
 

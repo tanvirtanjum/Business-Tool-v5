@@ -149,20 +149,20 @@ class ManagerDashController extends Controller
             return redirect()->route('managerDash.prodManageManager.index')->with('success','*Product Updated');
         }
 
-        if(Input::get('DELETE'))
-        {
-            $rules = [
-                'proId' => 'required',
-            ];
-            $msg = [
-                'required' => '*required.'
-            ];
-            $this->validate($request,$rules,$msg);
+        // if(Input::get('DELETE'))
+        // {
+        //     $rules = [
+        //         'proId' => 'required',
+        //     ];
+        //     $msg = [
+        //         'required' => '*required.'
+        //     ];
+        //     $this->validate($request,$rules,$msg);
 
-            DB::table('product')->where('PID','=',$request->proId)->update(['AVAILABILITY'=>'UNAVAILABLE','QUANTITY'=>'0']);
+        //     DB::table('product')->where('PID','=',$request->proId)->update(['AVAILABILITY'=>'UNAVAILABLE','QUANTITY'=>'0']);
 
-            return redirect()->route('managerDash.prodManageManager.index')->with('success','*Product Deleted');
-        }
+        //     return redirect()->route('managerDash.prodManageManager.index')->with('success','*Product Deleted');
+        // }
         
         if(Input::get('PRINT'))
         {
