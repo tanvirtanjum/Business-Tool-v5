@@ -39,7 +39,9 @@ class SalesmanDashController extends Controller
               $request->session()->flash('PID',$info1[0]->PID);
               $request->session()->flash('P_NAME',$info1[0]->P_NAME);
               $request->session()->flash('T',$info1[0]->TYPE);
+              $request->session()->flash('Q',$info1[0]->QUANTITY);
               $request->session()->flash('SP',$info1[0]->SELL_PRICE);
+              $request->session()->flash('BP',$info1[0]->BUY_PRICE);
               $request->session()->flash('con1', '');
               $request->session()->flash('con2', 'disabled');
               $request->session()->flash('con3', 'readonly');
@@ -62,27 +64,53 @@ class SalesmanDashController extends Controller
 
         if(Input::get('SELL'))
         {
-
+            //validation
             $rules = [
                 'proId' => 'required',
                 'proName' => 'required',
                 'proType' => 'required',
                 'proQuantity' => 'required',
-                'proBuyPrice' => 'required',
                 'proSellPrice' => 'required',
+                'proSellPrice' => 'required',
+                'customerName' => 'required',
+                'customerNo' => 'required',
+
             ];
             $msg = [
                 'required' => '*required.'
             ];
 
             $this->validate($request,$rules,$msg);
-            
-            DB::table('product')->insert(['PID'=>$request->proId,'P_NAME'=>$request->proName,
-            'TYPE'=>$request->proType,'AVAILABILITY'=>'AVAILABLE','QUANTITY'=>$request->proQuantity,
-            'BUY_PRICE'=>$request->proBuyPrice,'SELL_PRICE'=>$request->proSellPrice,
-            'MOD_BY'=>$request->session()->get('LID')]);
 
-            return redirect()->route('salesmanDash.sellProducts.index')->with('success','*Product Sold');
+
+            //db
+            $profits = $request->proSellPrice-$request->proBuyPrice;
+            $price = $request->proSellPrice* $request->proQuantity;
+            $profit = $profits*$request->proQuantity; 
+
+            $inf = DB::table('product')->where('PID','=',$request->proId)->get();
+            if($inf[0]->AVAILABILITY != 'UNAVAILABLE')
+            {
+                $data=DB::table('sales')->insert(['PID'=>$request->proId,'QUANT'=>$request->proQuantity,'OB_AMMOUNT'=>$price,
+                'PROFIT'=>$profit,'C_NAME'=>$request->customerName,'C_MOB'=>$request->customerNo,'SOLD_BY'=>$request->session()->get('LID')]);
+
+                if($data==TRUE)
+                {
+                    $quant = $request->preQuantity- $request->proQuantity;
+                    $query1 = DB::table('product')->where('PID','=',$request->proId)->update(['QUANTITY'=>$quant]);
+
+                    if($quant==0)
+                    {
+                        $query2 = DB::table('product')->where('PID','=',$request->proId)->update(['AVAILABILITY'=>'UNAVAILABLE']);
+                    }
+                }
+                return redirect()->route('salesmanDash.sellProducts.index')->with('success','*Product Sold');
+            }
+            else
+            {
+                return back()->with('fail','Not Enough Product Remain');
+            }
+            
         }
         
         if(Input::get('PRINT'))
