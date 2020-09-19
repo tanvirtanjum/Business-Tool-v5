@@ -62,8 +62,8 @@
                         <td align='middle'>{{$content->email}}</td>
                         <td align='middle'>{{$content->mobile}}</td>
                         <td align='middle'>{{$content->reg_date}}</td>
-                        <td align='middle'><a href="{{route('adminDash.regManageAdmin.index', [$content->cusid])}}">&#9989;</a></td>
-                        <td align='middle'><a href="{{route('adminDash.regManageAdmin.index', [$content->cusid])}}">&#128683;</a></td>
+                        <td align='middle'><a href="{{route('adminDash.regManageAdmin.accept', [$content->cusid])}}">&#9989;</a></td>
+                        <td align='middle'><a href="{{route('adminDash.regManageAdmin.reject', [$content->cusid])}}">&#128683;</a></td>
                       </tr>
                     @endforeach
                   </tbody>

@@ -516,4 +516,18 @@ class AdminDashController extends Controller
     $table = DB::table('customer')->where('status','=','2')->get();
   	return view('adminDash.regManageAdmin.index')->with('table', $table);
   }
+
+  function acceptAdminRegistrationManage(Request $request, $id)
+  {
+    DB::table('log_in')->where('LID', $id)->update(['SID' => '5']);
+    DB::table('customer')->where('cusid','=',$id)->update(['status' => '1']);
+  	return redirect()->route('adminDash.regManageAdmin.index');
+  }
+
+  function rejectAdminRegistrationManage(Request $request, $id)
+  {
+    DB::table('customer')->where('cusid','=',$id)->delete();
+    DB::table('log_in')->where('LID', $id)->delete();
+  	return redirect()->route('adminDash.regManageAdmin.index');
+  }
 }
