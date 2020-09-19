@@ -41,7 +41,7 @@ class SignupController extends Controller
             if($login_table== TRUE)
             {
                 DB::table('customer')->insert(['cusid'=>$LID,'name'=>$request->fullname,
-                'design'=>$request->design,'email'=>$request->email,'mobile'=>$request->mobile,'status'=>$SID]);
+                'design'=>$request->design,'email'=>$request->email,'mobile'=>$request->mobile,'status'=>'2']);
 
                 return redirect()->route('login.index')->with('success','Account Created wait for Admin Verify');
             }
@@ -50,6 +50,6 @@ class SignupController extends Controller
 
     function verify(Request $request)
     {
-      
+
     }
 }

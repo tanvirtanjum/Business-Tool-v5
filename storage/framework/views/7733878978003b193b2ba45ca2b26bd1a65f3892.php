@@ -1,4 +1,4 @@
-@include('adminDash.common')
+<?php echo $__env->make('adminDash.common', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +8,8 @@
     <title>Manage Pending Registrations</title>
     <!--<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
     <link rel="stylesheet" href="../assets/styles/pendingReg.css">-->
-    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/pendingReg.css') }}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/pendingReg.css')); ?>">
     <!-- <link rel="stylesheet" href="../assets/styles/manage.css"> -->
 
 </head>
@@ -54,20 +54,21 @@
                       </tr>
                   </thead>
                   <tbody id='tab'>
-                    @foreach($table as $content)
+                    <?php $__currentLoopData = $table; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <tr>
-                        <td align='middle'>{{$content->cusid}}</td>
-                        <td align='middle'>{{$content->name}}</td>
-                        <td align='middle'>{{$content->design}}</td>
-                        <td align='middle'>{{$content->email}}</td>
-                        <td align='middle'>{{$content->mobile}}</td>
-                        <td align='middle'>{{$content->reg_date}}</td>
-                        <td align='middle'><a href="{{route('adminDash.regManageAdmin.index', [$content->cusid])}}">&#10003;</a></td>
+                        <td align='middle'><?php echo e($content->cusid); ?></td>
+                        <td align='middle'><?php echo e($content->name); ?></td>
+                        <td align='middle'><?php echo e($content->design); ?></td>
+                        <td align='middle'><?php echo e($content->email); ?></td>
+                        <td align='middle'><?php echo e($content->mobile); ?></td>
+                        <td align='middle'><?php echo e($content->reg_date); ?></td>
+                        <td align='middle'><a href="<?php echo e(route('adminDash.regManageAdmin.index', [$content->cusid])); ?>">&#10003;</a></td>
                       </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
             </table>
         </div>
     </div>
 </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\ATP3\Final Project\Business Tool v5\trunk\resources\views/adminDash/regManageAdmin/index.blade.php ENDPATH**/ ?>

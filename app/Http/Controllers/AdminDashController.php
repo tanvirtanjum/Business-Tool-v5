@@ -419,7 +419,7 @@ class AdminDashController extends Controller
       $request->session()->flash('action', 'ACTION');
     }
 
-    $table = DB::table('customer')->get();
+    $table = DB::table('customer')->where('status','!=','2')->get();
   	return view('adminDash.customerManageAdmin.index')->with('table', $table);
   }
 
@@ -510,4 +510,10 @@ class AdminDashController extends Controller
     }
   }
 
+  //Pending Registration
+  function viewAdminRegistrationManage(Request $request)
+  {
+    $table = DB::table('customer')->where('status','=','2')->get();
+  	return view('adminDash.regManageAdmin.index')->with('table', $table);
+  }
 }

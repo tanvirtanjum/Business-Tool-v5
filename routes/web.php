@@ -62,6 +62,8 @@ Route::middleware(['SESS'])->group(function()
 
       Route::get('/adminDash/CustomerManage-Admin', 'AdminDashController@viewAdminCustomerManage')->name('adminDash.cusManageAdmin.index');
       Route::post('/adminDash/CustomerManage-Admin', 'AdminDashController@actionAdminCustomerManage');
+
+      Route::get('/adminDash/PendingRegistrationManage-Admin', 'AdminDashController@viewAdminRegistrationManage')->name('adminDash.regManageAdmin.index');
     });
 
     //MANAGER Session Validation Required (DONE)
