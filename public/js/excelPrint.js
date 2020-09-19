@@ -1,4 +1,4 @@
-ffunction exportToExcel(tableID, filename = '')
+function exportToExcel(tableID, filename = '')
 {
     var downloadurl;
     var dataFileType = 'application/vnd.ms-excel';
