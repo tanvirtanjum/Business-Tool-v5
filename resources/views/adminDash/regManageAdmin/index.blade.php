@@ -49,8 +49,8 @@
                           <th>CONTACT</th>
                           <th>EMAIL</th>
                           <th>REG. DATE</th>
-                          <th>ACTION 1</th>
-                          <th>ACTION 2</th>
+                          <th>ACCEPT</th>
+                          <th>REJECT</th>
                       </tr>
                   </thead>
                   <tbody id='tab'>
