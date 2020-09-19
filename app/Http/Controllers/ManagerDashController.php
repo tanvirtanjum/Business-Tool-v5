@@ -195,6 +195,16 @@ class ManagerDashController extends Controller
     //post
     public function approve(Request $request)
     {
+        
+        $rules = [
+            'db' => 'required',
+            
+        ];
+        $msg = [
+            'required' => '*'
+        ];
+
+        $this->validate($request,$rules,$msg);
         DB::table('orderlist')->where('orderid','=',$request->a)->update(['stat'=>'1', 'deliveryby'=>$request->db]);
         return view('managerDash.index');
     }

@@ -24,7 +24,7 @@
         <input type="text" name="am" value="{{$info[0]->ammout}}" readonly>
         <p>Order Date</p>
         <input type="text" name="od" value="{{$info[0]->ord_date}}" readonly>
-        <p>Delivery By</p>
+        <p>Delivery By <span style="color: red">{{$errors->first('db')}}</span></p>
         <input type="text" placeholder="Enter Delivery Man ID." name="db"><br>
         <input type="submit" value="CONFIRM">
     </div>
