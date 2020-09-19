@@ -49,8 +49,8 @@
                           <th>CONTACT</th>
                           <th>EMAIL</th>
                           <th>REG. DATE</th>
-                          <th>ACTION 1</th>
-                          <th>ACTION 2</th>
+                          <th>ACCEPT</th>
+                          <th>REJECT</th>
                       </tr>
                   </thead>
                   <tbody id='tab'>
@@ -62,8 +62,8 @@
                         <td align='middle'><?php echo e($content->email); ?></td>
                         <td align='middle'><?php echo e($content->mobile); ?></td>
                         <td align='middle'><?php echo e($content->reg_date); ?></td>
-                        <td align='middle'><a href="<?php echo e(route('adminDash.regManageAdmin.index', [$content->cusid])); ?>">&#9989;</a></td>
-                        <td align='middle'><a href="<?php echo e(route('adminDash.regManageAdmin.index', [$content->cusid])); ?>">&#128683;</a></td>
+                        <td align='middle'><a href="<?php echo e(route('adminDash.regManageAdmin.accept', [$content->cusid])); ?>">&#9989;</a></td>
+                        <td align='middle'><a href="<?php echo e(route('adminDash.regManageAdmin.reject', [$content->cusid])); ?>">&#128683;</a></td>
                       </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
