@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.$i">
     <title>Sales History</title>
     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/history.css')); ?>">
@@ -39,25 +39,25 @@
                 </thead>
                 <tbody id="">
                     <?php for($i=0; $i != count($history); $i++): ?>
-						<tr>
-							<td><?php echo e($history[$i]->SLID); ?></td>
-							<td><?php echo e($history[$i]->PID); ?></td>
-							<td><?php echo e($history[$i]->QUANT); ?></td>
-							<td><?php echo e($history[$i]->OB_AMMOUNT); ?></td>
-							<td><?php echo e($history[$i]->PROFIT); ?></td>
-							<td><?php echo e($history[$i]->C_NAME); ?></td>
-							<td><?php echo e($history[$i]->C_MOB); ?></td>
-							<td><?php echo e($history[$i]->SOLD_BY); ?></td>
-							<td><?php echo e($history[$i]->Sell_SDate); ?></td>
-						</tr>
-           			<?php endfor; ?>
+                        <tr>
+                            <td><?php echo e($history[$i]['SLID']); ?></td>
+                            <td><?php echo e($history[$i]['PID']); ?></td>
+                            <td><?php echo e($history[$i]['QUANT']); ?></td>
+                            <td><?php echo e($history[$i]['OB_AMMOUNT']); ?></td>
+                            <td><?php echo e($history[$i]['PROFIT']); ?></td>
+                            <td><?php echo e($history[$i]['C_NAME']); ?></td>
+                            <td><?php echo e($history[$i]['C_MOB']); ?></td>
+                            <td><?php echo e($history[$i]['SOLD_BY']); ?></td>
+                            <td><?php echo e($history[$i]['Sell_SDate']); ?></td>
+                        </tr>
+                    <?php endfor; ?>
                 </tbody>
 
             </table>
         </div>
         <hr>
-        <input style="margin-top: 5px;margin-left: 10px;" name="PRINT" id="PRINT" onclick="savePDF()" type="submit" value="Export PDF">
-        <input style="margin-top: 5px;margin-left: 10px;" type="submit" name="excel" onclick="exportToExcel('tblexportData', 'user-data')" value="Export Excel">
+        <input style="margin-top: 5px;margin-left: 1$ipx;" name="PRINT" id="PRINT" onclick="savePDF()" type="submit" value="Export PDF">
+        <input style="margin-top: 5px;margin-left: 1$ipx;" type="submit" name="excel" onclick="exportToExcel('tblexportData', 'user-data')" value="Export Excel">
         
     </div>
 </body>

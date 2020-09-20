@@ -69,6 +69,9 @@ Route::middleware(['SESS'])->group(function()
 
       Route::get('/adminDash/CustomerComplain-Admin', 'AdminDashController@viewCustomerComplain')->name('adminDash.cusComplainAdmin.index');
       Route::post('/adminDash/CustomerComplain-Admin', 'AdminDashController@actionCustomerComplain');
+
+      Route::get('/adminDash/NoticeManage-Admin', 'AdminDashController@viewNoticeManageAdmin')->name('adminDash.noticeManageAdmin.index');
+
     });
 
     //MANAGER Session Validation Required (DONE)

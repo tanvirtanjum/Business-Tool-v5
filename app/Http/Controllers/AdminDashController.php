@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Http;
+use http\Client;
+use GuzzleHttp\Psr7;
+
 use Validator;
 
 class AdminDashController extends Controller
@@ -573,6 +579,22 @@ class AdminDashController extends Controller
     if($request->REFRESH)
     {
       return redirect()->route('adminDash.cusComplainAdmin.index');
+    }
+  }
+
+  //Notice MANAGEMENT
+  function viewNoticeManageAdmin(Request $request)
+  {
+    $client=new \GuzzleHttp\Client();
+    $response=$client->request('GET','http://localhost:3333/notice');
+    if($response->getStatusCode() == 200)
+    {
+      $table=json_decode($response->getBody(), true);
+      return view('adminDash.noticeManageAdmin.index')->with('table',$table);
+    }
+    else
+    {
+      echo "ERROR: SERVER NOT WORKING! <a href='{{route('login.index')}}'>BACK TO DASH</a>";
     }
   }
 }

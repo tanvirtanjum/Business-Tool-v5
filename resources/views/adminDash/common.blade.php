@@ -32,7 +32,7 @@
 							<li><a href="{{route('adminDash.prodManageAdmin.index')}}"><i class="fab fa-product-hunt"></i>Product Management</a></li>
 							<li><a href="{{route('adminDash.regManageAdmin.index')}}"><i class="fas fa-registered"></i>Pending Registrations</a></li>
 							<!--<li><a href="/adminDash/orderManageAdmin"><i class="fas fa-cart-plus"></i>Pending Orders</a></li>-->
-							<li><a href="/adminDash/NoticeManageAdmin"><i class="fas fa-flag"></i>Notice Manage</a></li>
+							<li><a href="{{route('adminDash.noticeManageAdmin.index')}}"><i class="fas fa-flag"></i>Notice Manage</a></li>
 						</ul>
 					</li>
 					<li><a href="{{route('salesHistory.index')}}"><i class="fas fa-history"></i>Sales History</a></li>

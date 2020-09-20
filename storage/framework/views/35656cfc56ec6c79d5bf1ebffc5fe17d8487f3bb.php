@@ -1,4 +1,4 @@
-@include('adminDash.common')
+<?php echo $__env->make('adminDash.common', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +8,8 @@
     <title>Manage Notice</title>
     <!--<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
     <link rel="stylesheet" type="text/css" href="../assets/styles/notice.css">-->
-    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/notice.css') }}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/notice.css')); ?>">
 </head>
 <body>
     <div class="table">
@@ -29,12 +29,12 @@
                     <th>Subject</th>
                 </thead>
                 <tbody id='tab'>
-                  @foreach($table as $content)
+                  <?php $__currentLoopData = $table; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                      <td align='middle'>{{$content['noticeID']}}</td>
-                      <td align='middle'>{{$content['noteSub']}}</td>
+                      <td align='middle'><?php echo e($content['noticeID']); ?></td>
+                      <td align='middle'><?php echo e($content['noteSub']); ?></td>
                     </tr>
-                  @endforeach
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
             <input type="submit" name="REFRESH" value="REFRESH"><br>
@@ -44,3 +44,4 @@
     </div>
 </body>
 </html>>
+<?php /**PATH C:\xampp\htdocs\ATP3\Final Project\Business Tool v5\trunk\resources\views/adminDash/noticeManageAdmin/index.blade.php ENDPATH**/ ?>
