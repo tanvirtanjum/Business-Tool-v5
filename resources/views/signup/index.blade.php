@@ -43,6 +43,8 @@
         	<span style="color: red">{{$err}}</span> <br>
         	@endforeach
 			<input type="submit" name="REGISTER" value="REGISTER"><br><br>
+
+
 			<p><b>Or Signup with Social Media <a href="{{route('signup.socialMediaSignup')}}">here</a></b></p>
 			<p><b>Or Log In <a href="{{route('login.index')}}">here</a></b></p>
 		</form>
