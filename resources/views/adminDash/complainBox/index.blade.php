@@ -15,10 +15,11 @@
             <h1>Complain Box</h1>
             <hr>
             <form method="POST">
-                <input style="margin-top: 3px;width: 25%; margin-left: 10px;" type="text" name="subject" placeholder="Subject" value="" readonly>
-                <input style="margin-top: 3px;width: 25%; margin-left: 180px;" type="text" name="complainID" placeholder="Load Complain By ID">
-        <input type="Submit" name="READ" value="READ"><br>
-                <textarea style="margin-left: 11px;margin-top: 10px;" name="see" id="see" cols="40" rows="20" placeholder="Complain" readonly></textarea>
+                <input style="margin-top: 3px;width: 25%; margin-left: 10px;" type="text" name="subject" placeholder="Subject" value="{{Session::get('b')}}" readonly>
+                <input style="margin-top: 3px;width: 25%; margin-left: 180px;" type="text" name="complainID" placeholder="Load Complain By ID" value="{{Session::get('a')}}">
+                <span style='color: red;'> {!! html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8') !!} </span>
+                <input type="Submit" name="READ" value="READ"><br>
+                <textarea style="margin-left: 11px;margin-top: 10px;" name="see" id="see" cols="40" rows="20" placeholder="Complain" readonly>{{Session::get('c')}}</textarea>
                 <table style="float: right;margin-right: 40px;" class="content-table">
                     <thead>
                         <tr>
@@ -27,7 +28,14 @@
                             <th>Sender</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id='tab'>
+                      @foreach($table as $content)
+                        <tr>
+                          <td align='middle'>{{$content->cID }}</td>
+                          <td align='middle'>{{$content->sub}}</td>
+                          <td align='middle'>{{$content->OwnerID}}</td>
+                        </tr>
+                      @endforeach
                     </tbody>
                 </table>
         <br><input type="submit" name="REFRESH" value="REFRESH">

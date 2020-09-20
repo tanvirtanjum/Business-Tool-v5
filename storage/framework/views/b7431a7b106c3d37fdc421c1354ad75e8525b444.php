@@ -16,6 +16,7 @@
       <div class="box">
         <form method="POST">
           <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
+          <span style='color: red;'> <?php echo html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8'); ?> </span>
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
           <p>Customer ID</p>

@@ -35,10 +35,10 @@
 							<li><a href="/adminDash/NoticeManageAdmin"><i class="fas fa-flag"></i>Notice Manage</a></li>
 						</ul>
 					</li>
-					<li><a href="/salesHistory"><i class="fas fa-history"></i>Sales History</a></li>
-					<li><a href="/notice"><i class="fas fa-flag"></i>Notice</a></li>
-					<li><a href="/adminDash/complainBox/"><i class="fas fa-comment"></i>Customer Complain</a></li>
-					<li><a href="/notes"><i class="far fa-clipboard"></i>Notes</a></li>
+					<li><a href="<?php echo e(route('salesHistory.index')); ?>"><i class="fas fa-history"></i>Sales History</a></li>
+					<li><a href="<?php echo e(route('notice.index')); ?>"><i class="fas fa-flag"></i>Notice</a></li>
+					<li><a href="<?php echo e(route('adminDash.cusComplainAdmin.index')); ?>"><i class="fas fa-comment"></i>Customer Complain</a></li>
+					<li><a href="<?php echo e(route('notes.index')); ?>"><i class="far fa-clipboard"></i>Notes</a></li>
 					<li><a href="/chatBox"><i class="fas fa-envelope"></i>Chatbox</a></li>
 				</ul>
 

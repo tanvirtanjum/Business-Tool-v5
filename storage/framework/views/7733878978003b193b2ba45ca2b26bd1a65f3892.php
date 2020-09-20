@@ -14,9 +14,10 @@
 
 </head>
 <body>
-    <div class="box">
+    <div align="" class="table">
+        <h1>Pending Registrations</h1>
         <form method="POST">
-            <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
+            <input style="width: 20%; margin-left:33%" id="search" type="text" name="Search" placeholder="Search By ID" value="">
             <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
             <!--<p>Customer ID</p>
@@ -38,7 +39,7 @@
             <input type="submit" name="APPROVE" value="APPROVE">
             <input type="submit" name="REJECT" value="REJECT"> -->
         </form>
-        <div align="right" class="table">
+
             <table class="content-table">
                 <thead>
                   <thead>
@@ -68,7 +69,6 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
             </table>
-        </div>
     </div>
 </body>
 </html>

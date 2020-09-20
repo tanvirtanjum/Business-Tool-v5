@@ -530,4 +530,48 @@ class AdminDashController extends Controller
     DB::table('log_in')->where('LID', $id)->delete();
   	return redirect()->route('adminDash.regManageAdmin.index');
   }
+
+  function viewCustomerComplain(Request $request)
+  {
+    $table = DB::table('complain')->get();
+  	return view('adminDash.complainBox.index')->with('table', $table);
+  }
+
+  function actionCustomerComplain(Request $request)
+  {
+    if($request->READ)
+    {
+      $validate = Validator:: make($request->all(),[
+          'complainID' => 'required'
+      ]);
+      if($validate->fails())
+      {
+        $request->session()->flash('srchERR', '&#10033;');
+        return back()->with('errors',$validate->errors())->withInput();
+      }
+      else
+      {
+        $content = DB::table('complain')->where('cID','=', $request->complainID)->get();
+
+        if(count($content) > 0)
+        {
+          $request->session()->flash('a', $content[0]->cID);
+          $request->session()->flash('b', $content[0]->sub);
+          $request->session()->flash('c', $content[0]->Text);
+
+          return redirect()->route('adminDash.cusComplainAdmin.index');
+        }
+        else
+        {
+          $request->session()->flash('srchERR', '&#10033;');
+          return redirect()->route('adminDash.cusComplainAdmin.index');
+        }
+      }
+    }
+
+    if($request->REFRESH)
+    {
+      return redirect()->route('adminDash.cusComplainAdmin.index');
+    }
+  }
 }

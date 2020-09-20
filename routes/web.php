@@ -66,6 +66,9 @@ Route::middleware(['SESS'])->group(function()
       Route::get('/adminDash/PendingRegistrationManage-Admin', 'AdminDashController@viewAdminRegistrationManage')->name('adminDash.regManageAdmin.index');
       Route::get('/adminDash/PendingRegistrationManage-Admin/Accept/{id}', 'AdminDashController@acceptAdminRegistrationManage')->name('adminDash.regManageAdmin.accept');
       Route::get('/adminDash/PendingRegistrationManage-Admin/Reject/{id}', 'AdminDashController@rejectAdminRegistrationManage')->name('adminDash.regManageAdmin.reject');
+
+      Route::get('/adminDash/CustomerComplain-Admin', 'AdminDashController@viewCustomerComplain')->name('adminDash.cusComplainAdmin.index');
+      Route::post('/adminDash/CustomerComplain-Admin', 'AdminDashController@actionCustomerComplain');
     });
 
     //MANAGER Session Validation Required (DONE)

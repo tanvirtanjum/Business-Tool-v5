@@ -15,7 +15,7 @@
 </head>
 <body>
     <div align="" class="table">
-        <h1>Manage Pending Registrations</h1>
+        <h1>Pending Registrations</h1>
         <form method="POST">
             <input style="width: 20%; margin-left:33%" id="search" type="text" name="Search" placeholder="Search By ID" value="">
             <input id="btnSearch" type="submit" name="SEARCH" value="Search">
@@ -39,7 +39,7 @@
             <input type="submit" name="APPROVE" value="APPROVE">
             <input type="submit" name="REJECT" value="REJECT"> -->
         </form>
-        
+
             <table class="content-table">
                 <thead>
                   <thead>
