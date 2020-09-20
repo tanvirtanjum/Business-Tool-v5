@@ -40,8 +40,8 @@ class SignupController extends Controller
 
             if($login_table== TRUE)
             {
-                DB::table('customer')->insert(['cusid'=>$LID,'name'=>$request->fullname,
-                'design'=>$request->design,'email'=>$request->email,'mobile'=>$request->mobile,'status'=>'2']);
+                DB::table('customer')->insert(['cusid'=>$LID,'name'=>$request->fullname, 'design'=>$request->design,'email'=>$request->email,'mobile'=>$request->mobile,'status'=>'2']);
+                DB::table('profile_image')->insert([['UID' => $LID, 'IMAGE' => 'BT_Default_avatar_011211.png']]);
 
                 return redirect()->route('login.index')->with('success','Account Created wait for Admin Verify');
             }

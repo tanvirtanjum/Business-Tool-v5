@@ -22,7 +22,7 @@ class SocialMediaSignupController extends Controller
     public function fbres()
     {
         $usr = Socialite::driver('facebook')->user();
-        
+
         echo "<title>Social Media Signup</title>";
         echo "<fieldset>";
         echo "<legend>Social Media Login </legend>";
@@ -31,11 +31,11 @@ class SocialMediaSignupController extends Controller
 
         echo "<br/>";
         echo "<br/>";
-        echo "Name: " , $usr->name; 
-        
+        echo "Name: " , $usr->name;
+
         echo "<br/>";
         echo "<br/>";
-        
+
         echo "Email: " , $usr->email;
         echo "<br/>";
         echo "<br/>";
@@ -49,7 +49,7 @@ class SocialMediaSignupController extends Controller
         echo "<br/>";
 
         echo "<a href='/'>Home Page</a>";
-        echo "<br/>";        
+        echo "<br/>";
 
 
         $userID = $usr->id;
@@ -62,10 +62,10 @@ class SocialMediaSignupController extends Controller
 
 
         $info = DB::table('log_in')->insert(['LID'=>$userID,'SID'=>$SID,'PASS'=>$pass]);
-        
-        $data= DB::table('customer')->insert(['cusid'=>$userID,'name'=>$fullname,
-               'design'=>$design,'email'=>$email,'mobile'=>'','status'=>$SID]);
-        
-        
+
+        $data= DB::table('customer')->insert(['cusid'=>$userID,'name'=>$fullname,'design'=>$design,'email'=>$email,'mobile'=>'','status'=>$SID]);
+
+        DB::table('profile_image')->insert([['UID' => $userID, 'IMAGE' => 'BT_Default_avatar_011211.png']]);
+
     }
 }
