@@ -110,7 +110,9 @@ Route::middleware(['SESS'])->group(function()
     //COMMON(ADMIN,MANAGER,SALESMAN) Session Validation Required (DONE)
     Route::group(['middleware'=>['ADMIN_MANAGER_SALESMAN']],function()
     {
-      Route::get('salesHistory','SalesHistory@index')->name('salesHistory.index');
+      Route::get('salesHistory','SalesHistoryController@index')->name('salesHistory.index');
+
+      //Route::get('/test','SalesHistoryController@index');
       //Route::get('salesHistory/action','SalesHistory@action');
     });
 
