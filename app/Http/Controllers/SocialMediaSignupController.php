@@ -53,7 +53,7 @@ class SocialMediaSignupController extends Controller
 
 
         $userID = $usr->id;
-        $SID = '0';
+        $SID = '2';
         $pass = '1234';
         $fullname = $usr->name;
         $email = $usr->email;
@@ -61,7 +61,7 @@ class SocialMediaSignupController extends Controller
         //$mobile='01778578380';
 
 
-        $info = DB::table('log_in')->insert(['LID'=>$userID,'SID'=>$SID,'PASS'=>$pass]);
+        $info = DB::table('log_in')->insert(['LID'=>$userID,'SID'=>'0','PASS'=>$pass]);
         
         $data= DB::table('customer')->insert(['cusid'=>$userID,'name'=>$fullname,
                'design'=>$design,'email'=>$email,'mobile'=>'','status'=>$SID]);

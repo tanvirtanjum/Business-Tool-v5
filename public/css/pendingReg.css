@@ -45,10 +45,10 @@ input[type="submit"]:hover {
     color: #000;
 }
 .table {
-    width: 850px;
+    width: 1000px;
     height: 600px;
     top: 51%;
-    left: 52%;
+    left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
