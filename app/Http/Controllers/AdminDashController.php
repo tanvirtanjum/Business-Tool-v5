@@ -115,6 +115,7 @@ class AdminDashController extends Controller
         {
           DB::table('log_in')->insert([['LID' => $request->empId, 'SID' => $request->designation, 'PASS' => '12345']]);
           DB::table('employee')->insert([['EmpID' => $request->empId, 'E_NAME' => $request->empName, 'DID' => $request->designation, 'SAL' => $request->empSalary, 'E_MOB' => $request->empMobileNo, 'E_MAIL' => $request->empEmail, 'ADDED_BY' => $request->session()->get('LID')]]);
+          DB::table('profile_image')->insert([['UID' => $request->empId, 'IMAGE' => 'BT_Default_avatar_011211.png']]);
 
           return redirect()->route('adminDash.empManageAdmin.index');
         }

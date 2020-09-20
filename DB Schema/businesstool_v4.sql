@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2020 at 03:35 PM
+-- Generation Time: Sep 20, 2020 at 04:09 PM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,10 +31,10 @@ CREATE TABLE `chat` (
   `MSG_ID` int(11) NOT NULL,
   `DATE` datetime NOT NULL DEFAULT current_timestamp(),
   `SUB` varchar(250) DEFAULT NULL,
-  `SENDER` varchar(15) NOT NULL,
+  `SENDER` varchar(50) NOT NULL,
   `TEXT` longtext NOT NULL,
   `ATTACHMENT` varchar(300) DEFAULT NULL,
-  `RECEIVER` varchar(15) NOT NULL,
+  `RECEIVER` varchar(50) NOT NULL,
   `STATUS` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -59,7 +59,7 @@ INSERT INTO `chat` (`MSG_ID`, `DATE`, `SUB`, `SENDER`, `TEXT`, `ATTACHMENT`, `RE
 CREATE TABLE `complain` (
   `cID` int(255) NOT NULL,
   `sub` varchar(50) NOT NULL,
-  `OwnerID` varchar(10) NOT NULL,
+  `OwnerID` varchar(50) NOT NULL,
   `Text` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -68,8 +68,8 @@ CREATE TABLE `complain` (
 --
 
 INSERT INTO `complain` (`cID`, `sub`, `OwnerID`, `Text`) VALUES
-(1, 'good', '5', 'good'),
-(2, 'bad', '5', 'bad');
+(1, 'good', '5', 'Satisfactory  Service...'),
+(2, 'bad', '5', 'Bad Behavior ');
 
 -- --------------------------------------------------------
 
@@ -78,11 +78,11 @@ INSERT INTO `complain` (`cID`, `sub`, `OwnerID`, `Text`) VALUES
 --
 
 CREATE TABLE `customer` (
-  `cusid` varchar(200) NOT NULL,
+  `cusid` varchar(50) NOT NULL,
   `name` varchar(100) NOT NULL,
   `design` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `mobile` varchar(50) DEFAULT NULL,
+  `mobile` varchar(50) NOT NULL,
   `reg_date` datetime DEFAULT current_timestamp(),
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -92,13 +92,11 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cusid`, `name`, `design`, `email`, `mobile`, `reg_date`, `status`) VALUES
-('1619558094890237', 'Hasib Shanto', 'Customer', 'hasibsanto0@gmail.com', '', '2020-09-17 19:31:43', 1),
 ('5', 'ZISHAD HOSSAIN LIMON', 'Teacher', 'zishadlimon@gmail.com', '01521428944', '2020-08-10 20:15:25', 1),
 ('55', 'shanro', 'Customer', 'hasSha@gmail.com', '1778578380', '2020-08-14 08:49:46', 1),
 ('555', 'hasib', 'customer', 'cus@gmail.com', '145454', '2020-08-14 08:58:08', 1),
-('5555', 'Md. Hasibul Islam', 'Customer', 'hasibasanto0@gmail.com', '01778578380', '2020-09-17 13:44:33', 0),
-('6', 'Md. Hasibul Islam', 'Customer', 'hasibsaanto0@gmail.com', '01778578380', '2020-09-17 14:28:08', 0),
-('7', 'shanto', 'Customer', 'hasibsaanto0@gmail.com', '01778578380', '2020-09-17 14:30:42', 0),
+('6', 'Md. Hasibul Islam', 'Customer', 'hasibsaanto0@gmail.com', '01778578380', '2020-09-17 14:28:08', 1),
+('7', 'shanto', 'Customer', 'hasibsaanto0@gmail.com', '01778578380', '2020-09-17 14:30:42', 2),
 ('8', 'shanto', 'Customer', 'hasibsaannto0@gmail.com', '01778578380', '2020-09-17 14:32:50', 0);
 
 -- --------------------------------------------------------
@@ -108,7 +106,7 @@ INSERT INTO `customer` (`cusid`, `name`, `design`, `email`, `mobile`, `reg_date`
 --
 
 CREATE TABLE `employee` (
-  `EmpID` varchar(15) NOT NULL,
+  `EmpID` varchar(50) NOT NULL,
   `E_NAME` varchar(50) NOT NULL,
   `DID` int(1) NOT NULL,
   `SAL` double(10,2) NOT NULL,
@@ -124,21 +122,12 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOIN_DATE`, `ADDED_BY`) VALUES
 ('1', 'TANVIR TANJUM SHOURAV', 1, 100000.00, '01515217821', 'tanjumtanvir@gmail.com', '2020-08-10 19:28:06', '1'),
-('2', 'hasib', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1'),
+('2', 'HASIBUL ISLAM HASIB', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1'),
 ('3', 'shanto', 3, 15000.00, '01778578380', 'santo0@gmail.com', '2020-08-14 10:59:24', '1'),
 ('4', 'Anik', 4, 15000.00, '01251654544', 'anik@gmail.com', '2020-08-14 11:00:19', '1'),
-('A1', 'JARIN TASNIM', 1, 150000.00, '01515217001', 'shama@gmail.com', '2020-08-11 21:50:02', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emp_image`
---
-
-CREATE TABLE `emp_image` (
-  `IEmpID` varchar(15) DEFAULT NULL,
-  `EmpIMG` blob DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+('A1', 'JARIN TASNIM', 1, 150000.00, '01515217001', 'shama@gmail.com', '2020-08-11 21:50:02', '1'),
+('A2', 'KRITANJALI DHAR', 1, 150000.00, '01547896542', 'kriti@gmail.com', '2020-09-17 20:32:25', '1'),
+('A3', 'SADAT SAKIB UDDIN', 0, 15000.00, '01511578454', 'sadat@gmail.com', '2020-09-18 18:39:25', '1');
 
 -- --------------------------------------------------------
 
@@ -147,7 +136,7 @@ CREATE TABLE `emp_image` (
 --
 
 CREATE TABLE `log_in` (
-  `LID` varchar(200) NOT NULL,
+  `LID` varchar(50) NOT NULL,
   `SID` int(1) NOT NULL,
   `PASS` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -157,19 +146,19 @@ CREATE TABLE `log_in` (
 --
 
 INSERT INTO `log_in` (`LID`, `SID`, `PASS`) VALUES
-('1', 1, '1111'),
-('1619558094890237', 5, '1234'),
+('1', 1, '3339'),
 ('2', 2, '2222'),
 ('3', 3, '3333'),
 ('4', 4, '4444'),
 ('5', 5, '5555'),
 ('55', 5, '5555'),
 ('555', 5, '5555'),
-('5555', 0, '5555'),
-('6', 0, '6666'),
+('6', 5, '6666'),
 ('7', 0, '7777'),
 ('8', 0, '8888'),
-('A1', 1, '12345');
+('A1', 1, '12345'),
+('A2', 1, '12345'),
+('A3', 0, '12345');
 
 -- --------------------------------------------------------
 
@@ -202,7 +191,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `note` (
   `NoteID` int(255) NOT NULL,
   `NoteName` varchar(50) NOT NULL,
-  `OwnerID` varchar(10) NOT NULL,
+  `OwnerID` varchar(50) NOT NULL,
   `Text` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -232,7 +221,7 @@ CREATE TABLE `note_m` (
 --
 
 INSERT INTO `note_m` (`NoteID`, `NoteName`, `OwnerID`, `Text`) VALUES
-(2, 'Test', '1', 'lalaalalalaslaslaslaskals'),
+(2, 'Test', '1', 'TEST NOTE'),
 (10, 'Test', '2', 'rgrg'),
 (11, 'fdfd', '2', 'rgrg'),
 (12, 'fdfd', '2', 'rgrg');
@@ -271,8 +260,8 @@ CREATE TABLE `orderlist` (
   `ammout` double(10,2) NOT NULL,
   `stat` varchar(50) NOT NULL,
   `ord_date` datetime DEFAULT current_timestamp(),
-  `deliveryby` varchar(15) DEFAULT NULL,
-  `orderby` varchar(15) NOT NULL
+  `deliveryby` varchar(50) DEFAULT NULL,
+  `orderby` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -310,7 +299,7 @@ CREATE TABLE `product` (
   `QUANTITY` int(15) NOT NULL,
   `BUY_PRICE` double(10,2) NOT NULL,
   `SELL_PRICE` double(10,2) NOT NULL,
-  `MOD_BY` varchar(15) NOT NULL,
+  `MOD_BY` varchar(50) NOT NULL,
   `Add_PDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -322,7 +311,8 @@ INSERT INTO `product` (`PID`, `P_NAME`, `TYPE`, `AVAILABILITY`, `QUANTITY`, `BUY
 ('L101F', 'lll', 'Laptop', 'AVAILABLE', 0, 15000.00, 15500.00, '1', '2020-08-13 15:18:23'),
 ('L102F', 'sf', 'Laptop', 'AVAILABLE', 117, 1500.00, 1600.00, 'A1', '2020-08-13 16:38:34'),
 ('L103F', 'fff', 'Laptop', 'AVAILABLE', 15, 2000.00, 2100.00, '1', '2020-08-13 16:38:34'),
-('L203F', 'Asus', 'Keyboard', 'UNAVAILABLE', 5, 500.00, 600.00, '2', '2020-08-14 10:22:29');
+('L203F', 'Asus', 'Keyboard', 'UNAVAILABLE', 5, 500.00, 600.00, '2', '2020-08-14 10:22:29'),
+('L420M', 'A4 TECH MEGA', 'Mouse', 'AVAILABLE', 5, 250.00, 300.00, '1', '2020-09-18 20:27:45');
 
 -- --------------------------------------------------------
 
@@ -331,7 +321,7 @@ INSERT INTO `product` (`PID`, `P_NAME`, `TYPE`, `AVAILABILITY`, `QUANTITY`, `BUY
 --
 
 CREATE TABLE `profile_image` (
-  `UID` int(10) UNSIGNED NOT NULL,
+  `UID` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `IMAGE` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -340,11 +330,11 @@ CREATE TABLE `profile_image` (
 --
 
 INSERT INTO `profile_image` (`UID`, `IMAGE`) VALUES
-(1, 'gbg'),
-(2, 'dgfg'),
-(3, 'ssda'),
-(4, 'sds'),
-(5, 'sds');
+('1', 'PIC.jpg'),
+('2', 'BT_Default_avatar_011211.png'),
+('3', 'BT_Default_avatar_011211.png'),
+('4', 'BT_Default_avatar_011211.png'),
+('5', 'BT_Default_avatar_011211.png');
 
 -- --------------------------------------------------------
 
@@ -360,7 +350,7 @@ CREATE TABLE `sales` (
   `PROFIT` double(10,2) NOT NULL,
   `C_NAME` varchar(25) NOT NULL,
   `C_MOB` varchar(14) NOT NULL,
-  `SOLD_BY` varchar(15) NOT NULL,
+  `SOLD_BY` varchar(50) NOT NULL,
   `Sell_SDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -452,12 +442,6 @@ ALTER TABLE `employee`
   ADD UNIQUE KEY `E_MAIL` (`E_MAIL`),
   ADD KEY `D_ID` (`DID`),
   ADD KEY `ADDED_BY` (`ADDED_BY`);
-
---
--- Indexes for table `emp_image`
---
-ALTER TABLE `emp_image`
-  ADD KEY `IEmpID` (`IEmpID`);
 
 --
 -- Indexes for table `log_in`
@@ -587,12 +571,6 @@ ALTER TABLE `orderlist`
   MODIFY `orderid` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `profile_image`
---
-ALTER TABLE `profile_image`
-  MODIFY `UID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
@@ -634,12 +612,6 @@ ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`DID`) REFERENCES `status` (`SID`),
   ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`ADDED_BY`) REFERENCES `log_in` (`LID`),
   ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`EmpID`) REFERENCES `log_in` (`LID`);
-
---
--- Constraints for table `emp_image`
---
-ALTER TABLE `emp_image`
-  ADD CONSTRAINT `emp_image_ibfk_1` FOREIGN KEY (`IEmpID`) REFERENCES `employee` (`EmpID`);
 
 --
 -- Constraints for table `log_in`
