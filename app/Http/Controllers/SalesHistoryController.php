@@ -19,8 +19,6 @@ class SalesHistoryController extends Controller
         $response=$client->request('GET','http://localhost:3000/show');
         $history=json_decode($response->getBody(), true);
         return view('salesHistory.index')->with('history',$history);
-
-
         
         //$history=DB::table('sales')->get();
         

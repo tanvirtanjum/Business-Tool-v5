@@ -10,10 +10,12 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/manage.css') }}">
     <script src="{{ URL::to('js/printProduct.js') }}"></script>
+    <script src="{{ URL::to('js/jquery.js') }}"></script>
 </head>
 <body>
     <div class="box">
             <form method="POST">
+            @csrf
             <span style="color: green">{{Session('success')}}</span>
                 <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
                 <span style='color: red;'> {!! html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8') !!} </span>

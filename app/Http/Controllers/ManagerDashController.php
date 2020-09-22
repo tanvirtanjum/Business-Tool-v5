@@ -51,6 +51,8 @@ class ManagerDashController extends Controller
         if(Input::get('SEARCH'))
         {
           $info1 = DB::table('product')->where('PID','=',$request->SearchID)->get();
+
+        //   $info1 = DB::table('product')->where('PID','LIKE','%'.$request->SearchID.'%')->get();
   
           if(count($info1)>0)
           {

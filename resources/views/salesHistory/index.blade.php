@@ -21,7 +21,7 @@
 <body>
     <div class="table">
         <h1>Sales History</h1>
-        <input type="text" name="search" id="search" onkeyup="search()" placeholder="Ajax Search">
+        {{-- <input type="text" name="search" id="search" onkeyup="search()" placeholder="Ajax Search"> --}}
         <div class=tab1 id="table">
             <table class="content-table" id="tblexportData" border="1">
                 <thead>
