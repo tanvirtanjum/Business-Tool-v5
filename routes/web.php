@@ -115,6 +115,15 @@ Route::middleware(['SESS'])->group(function()
 
       Route::get('/customerDash/orderProducts', 'OrderProductController@view')->name('customerDash.orderProducts.index');
       Route::post('/customerDash/orderProducts', 'OrderProductController@action');
+
+      Route::get('/customerDash/confirmedOrders', 'OrderConfirmationController@view')->name('customerDash.confirmedOrders.index');
+      Route::post('/customerDash/confirmedOrders', 'OrderConfirmationController@action');
+
+      Route::get('/customerDash/pendingOrders', 'PendingOrderController@view')->name('customerDash.pendingOrders.index');
+      Route::post('/customerDash/pendingOrders', 'PendingOrderController@action');
+
+      //Route::get('/customerDash/recievedRecords', 'RecievedRecordController@view')->name('customerDash.recievedRecords.index');
+      //Route::post('/customerDash/recievedRecords', 'RecievedRecordController@action');
     });
 
     //COMMON(ADMIN,MANAGER,SALESMAN) Session Validation Required (DONE)
