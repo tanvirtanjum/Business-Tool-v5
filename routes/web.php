@@ -110,6 +110,11 @@ Route::middleware(['SESS'])->group(function()
     Route::group(['middleware'=>['CUSTOMER']],function()
     {
       Route::get('/customerDash', 'CustomerDashController@index')->name('customerDash.index');
+      Route::get('/customerDash/complainBox', 'ComplainBoxController@view')->name('customerDash.complainBox.index');
+      Route::post('/customerDash/complainBox', 'ComplainBoxController@action');
+
+      Route::get('/customerDash/orderProducts', 'OrderProductController@view')->name('customerDash.orderProducts.index');
+      Route::post('/customerDash/orderProducts', 'OrderProductController@action');
     });
 
     //COMMON(ADMIN,MANAGER,SALESMAN) Session Validation Required (DONE)
