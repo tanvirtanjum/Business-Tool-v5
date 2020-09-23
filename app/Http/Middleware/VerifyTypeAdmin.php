@@ -15,7 +15,7 @@ class VerifyTypeAdmin
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('SID') == 1)
+        if($request->session()->get('SID') == '1')
         {
             return $next($request);
         }

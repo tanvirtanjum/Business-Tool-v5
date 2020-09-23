@@ -103,6 +103,7 @@ Route::middleware(['SESS'])->group(function()
     Route::group(['middleware'=>['DELIVERYMAN']],function()
     {
       Route::get('/deliverymanDash', 'DeliverymanDashController@index')->name('deliveryDash.index');
+      Route::get('/deliverymanDash/PendingDeliveryList', 'DeliverymanDashController@viewPendingDelivery')->name('deliveryDash.pendingOrder');
     });
 
     //CUSTOMER Session Validation Required (DONE)
@@ -123,10 +124,10 @@ Route::middleware(['SESS'])->group(function()
     //COMMON(ADMIN,MANAGER,SALESMAN,DELIVERYMAN) Session Validation Required (DONE)
     Route::group(['middleware'=>['ADMIN_MANAGER_SALESMAN_DELIVERYMAN']],function()
     {
-      Route::get('notes','NotesController@index')->name('notes.index');
-      Route::post('notes','NotesController@note');
+      Route::get('/notes','NotesController@index')->name('notes.index');
+      Route::post('/notes','NotesController@note');
 
-      Route::get('notice','NoticeController@index')->name('notice.index');
-      Route::post('notice','NoticeController@actionNotice');
+      Route::get('/notice','NoticeController@index')->name('notice.index');
+      Route::post('/notice','NoticeController@actionNotice');
     });
 });

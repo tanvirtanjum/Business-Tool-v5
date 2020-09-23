@@ -15,7 +15,7 @@ class VerifyTypeSalesman
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('SID') == 3)
+        if($request->session()->get('SID') == '3')
         {
             return $next($request);
         }

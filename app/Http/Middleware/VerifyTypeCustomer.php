@@ -15,7 +15,7 @@ class VerifyTypeCustomer
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('SID') == 5)
+        if($request->session()->get('SID') == '5')
         {
             return $next($request);
         }

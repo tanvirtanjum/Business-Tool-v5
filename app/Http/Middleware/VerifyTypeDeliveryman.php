@@ -15,7 +15,7 @@ class VerifyTypeDeliveryman
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('SID') == 4)
+        if($request->session()->get('SID') == '4')
         {
             return $next($request);
         }

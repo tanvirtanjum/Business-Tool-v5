@@ -21,14 +21,14 @@
 					<li><a><i class="fas fa-user-circle"></i>Profile<span class="sub_arrow"></span></a>
 						<ul>
 							<li><a href="<?php echo e(route('aboutUser.index')); ?>"><i class="fas fa-address-card"></i>About <?php echo e(session('LID')); ?></a></li>
-							<li><a href="/changepassword" target='_blank'><i class="fas fa-key"></i>Change Password</a></li>
+							<li><a href="<?php echo e(route('changepass.index')); ?>"><i class="fas fa-key"></i>Change Password</a></li>
 							<li><a href="<?php echo e(route('logout.execute')); ?>"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
 						</ul>
 					</li>
-					<li><a href="/DeliverymanDash/pendingDeliveryList"><i class="fas fa-list-alt"></i>Pending Delivery list</a></li>
+					<li><a href="<?php echo e(route('deliveryDash.pendingOrder')); ?>"><i class="fas fa-list-alt"></i>Pending Delivery list</a></li>
 					<li><a href="/DeliverymanDash/deliveryRecords"><i class="fas fa-history"></i>Records</a></li>
-					<li><a href="/notice"><i class="fas fa-flag"></i>Notices</a></li>
-					<li><a href="/notes"><i class="far fa-clipboard"></i>Notes</a></li>
+					<li><a href="<?php echo e(route('notice.index')); ?>"><i class="fas fa-flag"></i>Notice</a></li>
+					<li><a href="<?php echo e(route('notes.index')); ?>"><i class="far fa-clipboard"></i>Notes</a></li>
 					<li><a href="/chatBox"><i class="fas fa-envelope"></i>Chatbox</a></li>
 				</ul>
 				<div class="social_media">

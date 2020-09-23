@@ -1,4 +1,4 @@
-@include('DeliverymanDash.common')
+<?php echo $__env->make('DeliverymanDash.common', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <html lang="en">
 <head>
@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" type="text/css" href="../assets/styles/Delivery.css">
     <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">-->
-    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::to('css/Delivery.css') }}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/Delivery.css')); ?>">
     <title>Pending Delivery List</title>
 </head>
 <body>
@@ -31,3 +31,4 @@
     </div>
 </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\ATP3\Final Project\Business Tool v5\trunk\resources\views/DeliverymanDash/pendingDeliveryList/index.blade.php ENDPATH**/ ?>

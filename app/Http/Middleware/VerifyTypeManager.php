@@ -15,7 +15,7 @@ class VerifyTypeManager
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('SID') == 2)
+        if($request->session()->get('SID') == '2')
         {
             return $next($request);
         }

@@ -15,7 +15,7 @@ class VerifyTypeAdminManagerSalesman
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('SID') == 1 | $request->session()->get('SID') == 2 | $request->session()->get('SID') == 3)
+        if($request->session()->get('SID') == '1' | $request->session()->get('SID') == '2' | $request->session()->get('SID') == '3')
         {
             return $next($request);
         }

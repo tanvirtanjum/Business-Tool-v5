@@ -12,8 +12,8 @@ class DeliverymanDashController extends Controller
     	return view('DeliverymanDash.index');
     }
 
-    function verify(Request $request)
+    function viewPendingDelivery(Request $request)
     {
-
+      return view('DeliverymanDash.pendingDeliveryList.index');
     }
 }
