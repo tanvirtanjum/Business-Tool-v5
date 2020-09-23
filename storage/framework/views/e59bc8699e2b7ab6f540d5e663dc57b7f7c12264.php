@@ -23,10 +23,11 @@
 			<h1>Notice</h1>
 			<hr>
 			<form method="POST">
-				<input style="margin-top: 3px;width: 25%; margin-left: 10px;" type="text" name="subject" placeholder="Subject" value="">
-				<input style="margin-top: 3px;width: 25%; margin-left: 180px;" type="text" name="noticeID" placeholder="Load Notice By ID">
+				<input style="margin-top: 3px;width: 25%; margin-left: 10px;" type="text" name="subject" placeholder="Subject" value="<?php echo e(Session::get('b')); ?>">
+				<input style="margin-top: 3px;width: 25%; margin-left: 180px;" type="text" name="noticeID" placeholder="Load Notice By ID" value="<?php echo e(Session::get('a')); ?>">
+        <span style='color: red;'> <?php echo html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8'); ?> </span>
         <input type="Submit" name="READ" value="READ"><br>
-				<textarea style="margin-left: 11px;margin-top: 10px;" name="see" id="see" cols="40" rows="20" placeholder="Notice"></textarea>
+				<textarea style="margin-left: 11px;margin-top: 10px;" name="see" id="see" cols="40" rows="20" placeholder="Notice"> <?php echo e(Session::get('c')); ?> </textarea>
 				<table style="float: right;margin-right: 40px;" class="content-table">
 					<thead>
 						<tr>
@@ -34,9 +35,14 @@
 							<th>Subject</th>
 						</tr>
 					</thead>
-					<tbody>
-					</tbody>
-
+          <tbody id='tab'>
+            <?php $__currentLoopData = $table; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <tr>
+                <td align='middle'><?php echo e($content['noticeID']); ?></td>
+                <td align='middle'><?php echo e($content['noteSub']); ?></td>
+              </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          </tbody>
 				</table>
         <br><input type="submit" name="REFRESH" value="REFRESH">
 			</form>

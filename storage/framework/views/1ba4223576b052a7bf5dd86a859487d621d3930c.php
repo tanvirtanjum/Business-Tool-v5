@@ -11,15 +11,20 @@
       <script src="assets/js/empvalid.js"></script>-->
       <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
       <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/manage.css')); ?>">
+      <script src="<?php echo e(URL::to('js/printSalesHistory.js')); ?>"></script>
+      <script src="<?php echo e(URL::to('js/excelPrint.js')); ?>"></script>
+      <script src="<?php echo e(URL::to('js/jquery.js')); ?>"></script>
   </head>
 
   <body>
       <div class="box">
         <form method="POST">
           <span style='color:red;'><?php echo e(Session::get('dbERR')); ?></span>
-          <input style="width: 15%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="<?php echo e(Session::get('a')); ?>">
+          <input style="width: 15%; margin-left: 330px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="<?php echo e(Session::get('a')); ?>">
           <span style='color: red;'> <?php echo html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8'); ?> </span>
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
+          <input type="submit" name="PRINT" id="PRINT" onclick="savePDF()" value="Export PDF">
+          <input type="submit" name="excel" onclick="exportToExcel('tblexportData', 'user-data')" value="Export Excel">
 
           <p>Employee ID</p>
           <input type="text" id="empId" name="empId" placeholder="Enter Employee Id" value="<?php echo e(Session::get('a')); ?>" <?php echo e(Session::get('iFLD')); ?>>
@@ -48,8 +53,8 @@
           <input type="submit" name="UPDATE" value="UPDATE" <?php echo e(Session::get('udBTN')); ?>>
           <input type="submit" name="DELETE" value="DELETE" <?php echo e(Session::get('udBTN')); ?>>
         </form>
-        <div align="right" class="table">
-            <table class="content-table">
+        <div align="right" class="table" id="table">
+            <table class="content-table" id="tblexportData">
                 <thead>
                     <tr>
                         <th>EmpId</th>

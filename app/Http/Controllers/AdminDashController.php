@@ -92,6 +92,16 @@ class AdminDashController extends Controller
       return redirect()->route('adminDash.empManageAdmin.index');
     }
 
+    if($request->PRINT)
+    {
+      return redirect()->route('adminDash.empManageAdmin.index');
+    }
+
+    if($request->excel)
+    {
+      return redirect()->route('adminDash.empManageAdmin.index');
+    }
+
     if($request->INSERT)
     {
       $validate = Validator:: make($request->all(),[
@@ -585,16 +595,123 @@ class AdminDashController extends Controller
   //Notice MANAGEMENT
   function viewNoticeManageAdmin(Request $request)
   {
-    $client=new \GuzzleHttp\Client();
-    $response=$client->request('GET','http://localhost:3333/notice');
-    if($response->getStatusCode() == 200)
+    try
     {
-      $table=json_decode($response->getBody(), true);
-      return view('adminDash.noticeManageAdmin.index')->with('table',$table);
+      $client=new \GuzzleHttp\Client();
+      $response=$client->request('GET','http://localhost:3333/notice');
+      if($response->getStatusCode() == 200)
+      {
+        $table=json_decode($response->getBody(), true);
+        if($request->session()->has('con1'))
+        {
+          $request->session()->flash('udBTN', $request->session()->get('con1'));
+          $request->session()->flash('sfld', $request->session()->get('con3'));
+        }
+        else
+        {
+          $request->session()->flash('udBTN', 'disabled');
+          $request->session()->flash('sfld', '');
+        }
+        return view('adminDash.noticeManageAdmin.index')->with('table',$table);
+      }
+      else
+      {
+        echo "<h1>ERROR: SERVER NOT WORKING!</h1> <br> <a href='http://localhost:8000/login'>BACK TO DASH</a>";
+      }
     }
-    else
+    catch (\Exception $e)
     {
-      echo "ERROR: SERVER NOT WORKING! <a href='{{route('login.index')}}'>BACK TO DASH</a>";
+      echo "<h1>ERROR: SERVER NOT WORKING!</h1> <br> <a href='http://localhost:8000/login'>BACK TO DASH</a>";
     }
   }
+
+  function actionNoticeManageAdmin(Request $request)
+  {
+    if($request->LOAD)
+    {
+      $validate = Validator:: make($request->all(),[
+          'noticeID' => 'required'
+      ]);
+      if($validate->fails())
+      {
+        $request->session()->flash('srchERR', '&#10033;');
+        $request->session()->flash('con1', 'disabled');
+        $request->session()->flash('con3', '');
+        return back()->with('errors',$validate->errors())->withInput();
+      }
+      else
+      {
+        $content = DB::table('notice')->where('noticeID','=', $request->noticeID)->get();
+
+        if(count($content) > 0)
+        {
+          $request->session()->flash('a', $content[0]->noticeID);
+          $request->session()->flash('b', $content[0]->noteSub);
+          $request->session()->flash('c', $content[0]->noticetext);
+          $request->session()->flash('con1', '');
+          $request->session()->flash('con3', 'readonly');
+
+          return redirect()->route('adminDash.noticeManageAdmin.index');
+        }
+        else
+        {
+          $request->session()->flash('srchERR', '&#10033;');
+          $request->session()->flash('con1', 'disabled');
+          $request->session()->flash('con3', '');
+
+          return redirect()->route('adminDash.noticeManageAdmin.index');
+        }
+      }
+    }
+
+    if($request->REFRESH)
+    {
+      return redirect()->route('adminDash.noticeManageAdmin.index');
+    }
+
+    if($request->SEND)
+    {
+      $validate = Validator:: make($request->all(),[
+          'noteSub' => 'required',
+          'noticetext' => 'required'
+      ]);
+      if($validate->fails())
+      {
+        $request->session()->flash('upERR', 'ERROR: Fill Correctly.');
+
+        return back()->with('errors',$validate->errors())->withInput();
+      }
+      else
+      {
+        DB::table('notice')->insert([[ 'noteSub' => $request->noteSub, 'noticetext' => $request->noticetext]]);
+        return redirect()->route('adminDash.noticeManageAdmin.index');
+      }
+    }
+
+    if($request->UPDATE)
+    {
+      $validate = Validator:: make($request->all(),[
+          'noteSub' => 'required',
+          'noticetext' => 'required'
+      ]);
+      if($validate->fails())
+      {
+        $request->session()->flash('upERR', 'ERROR: Fill Correctly.');
+
+        return back()->with('errors',$validate->errors())->withInput();
+      }
+      else
+      {
+        DB::table('notice')->where('noticeID','=', $request->noticeID)->update([ 'noteSub' => $request->noteSub, 'noticetext' => $request->noticetext]);
+        return redirect()->route('adminDash.noticeManageAdmin.index');
+      }
+    }
+
+    if($request->DELETE)
+    {
+        DB::table('notice')->where('noticeID','=', $request->noticeID)->delete();
+        return redirect()->route('adminDash.noticeManageAdmin.index');
+    }
+  }
+
 }

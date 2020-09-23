@@ -71,6 +71,7 @@ Route::middleware(['SESS'])->group(function()
       Route::post('/adminDash/CustomerComplain-Admin', 'AdminDashController@actionCustomerComplain');
 
       Route::get('/adminDash/NoticeManage-Admin', 'AdminDashController@viewNoticeManageAdmin')->name('adminDash.noticeManageAdmin.index');
+      Route::post('/adminDash/NoticeManage-Admin', 'AdminDashController@actionNoticeManageAdmin');
 
     });
 
@@ -126,5 +127,6 @@ Route::middleware(['SESS'])->group(function()
       Route::post('notes','NotesController@note');
 
       Route::get('notice','NoticeController@index')->name('notice.index');
+      Route::post('notice','NoticeController@actionNotice');
     });
 });
