@@ -1,1 +1,1 @@
-a:5:{s:6:"_token";s:40:"VoJ3zhlnr69stOURnJCMh4f87Ve5M0gmDACCG50l";s:9:"_previous";a:1:{s:3:"url";s:48:"http://localhost:8000/customerDash/orderProducts";}s:6:"_flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}s:3:"LID";s:1:"5";s:3:"SID";i:5;}
+a:6:{s:9:"_previous";a:1:{s:3:"url";s:51:"http://localhost:8000/managerDash/prodManageManager";}s:6:"_flash";a:2:{s:3:"old";a:1:{i:0;s:5:"udBTN";}s:3:"new";a:0:{}}s:6:"_token";s:40:"69DtmjtcLYBVpLUlFUUaqnF06ZZJXj6x7VapuiEj";s:3:"LID";s:1:"2";s:3:"SID";i:2;s:5:"udBTN";s:8:"disabled";}
