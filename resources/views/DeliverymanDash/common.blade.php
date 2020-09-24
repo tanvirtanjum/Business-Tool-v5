@@ -26,7 +26,7 @@
 						</ul>
 					</li>
 					<li><a href="{{route('deliveryDash.pendingOrder')}}"><i class="fas fa-list-alt"></i>Pending Delivery list</a></li>
-					<li><a href="/DeliverymanDash/deliveryRecords"><i class="fas fa-history"></i>Records</a></li>
+					<li><a href="{{route('deliveryDash.records')}}"><i class="fas fa-history"></i>Records</a></li>
 					<li><a href="{{route('notice.index')}}"><i class="fas fa-flag"></i>Notice</a></li>
 					<li><a href="{{route('notes.index')}}"><i class="far fa-clipboard"></i>Notes</a></li>
 					<li><a href="/chatBox"><i class="fas fa-envelope"></i>Chatbox</a></li>

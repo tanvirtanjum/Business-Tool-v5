@@ -29,6 +29,9 @@ class DeliverymanDashController extends Controller
     {
       DB::table('orderlist')->where('orderid','=',$id)->where('deliveryby', $request->session()->get('LID'))->where('stat', '1')->update(['stat' => '2']);
       //DB::table('customer')->where('cusid','=',$id)->update(['status' => '1']);
+      $content = DB::table('orderlist')->where('orderid','=',$id)->get()->first();
+      $customer=  DB::table('customer')->where('cusid','=', $content->orderby)->get()->first();
+      DB::table('sales')->insert(['PID'=>$content->prodid,'QUANT'=>$content->quant,'OB_AMMOUNT'=>$content->ammout,'PROFIT'=>'0','C_NAME'=>'ONLINE-'.$customer->name,'C_MOB'=>'00000000000','SOLD_BY'=>$content->deliveryby]);
 
     	return redirect()->route('deliveryDash.pendingOrder');
     }
@@ -38,5 +41,11 @@ class DeliverymanDashController extends Controller
       DB::table('orderlist')->where('orderid','=',$id)->where('deliveryby', $request->session()->get('LID'))->where('stat', '1')->delete();
 
     	return redirect()->route('deliveryDash.pendingOrder');
+    }
+
+    function viewRecord(Request $request)
+    {
+      $table = DB::table('orderlist')->where('deliveryby', $request->session()->get('LID'))->where('stat', '2')->orderBy('orderid', 'asc')->get();
+      return view('DeliverymanDash.deliveryRecords.index')->with('table', $table);
     }
 }

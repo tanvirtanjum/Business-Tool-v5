@@ -26,7 +26,7 @@
 						</ul>
 					</li>
 					<li><a href="<?php echo e(route('deliveryDash.pendingOrder')); ?>"><i class="fas fa-list-alt"></i>Pending Delivery list</a></li>
-					<li><a href="/DeliverymanDash/deliveryRecords"><i class="fas fa-history"></i>Records</a></li>
+					<li><a href="<?php echo e(route('deliveryDash.records')); ?>"><i class="fas fa-history"></i>Records</a></li>
 					<li><a href="<?php echo e(route('notice.index')); ?>"><i class="fas fa-flag"></i>Notice</a></li>
 					<li><a href="<?php echo e(route('notes.index')); ?>"><i class="far fa-clipboard"></i>Notes</a></li>
 					<li><a href="/chatBox"><i class="fas fa-envelope"></i>Chatbox</a></li>
