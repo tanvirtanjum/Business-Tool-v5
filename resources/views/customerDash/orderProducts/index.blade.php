@@ -1,6 +1,5 @@
 <!-- sidebar Included -->
 
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,12 +13,14 @@
         <h1>Order Products</h1>
         <hr>
           <div class="cart" style="margin-left: 25px;">
+            <tr>
               <p>Product ID. </p>
               <p>Product Name: </p>
               <p>Available Quantity:</p>
               <p>Price: </p>
               <p>Type: </p>
-              <hr>
+            </tr>
+          <hr>
               <a style="padding-left: 20px;" href=""><input type="submit" value="Buy"></a>
           </div>
     </div>
