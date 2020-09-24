@@ -34,6 +34,7 @@
 						</ul>
 					</li>
 					<li><a href="/customerDash/complainBox"><i class="fas fa-comment-dots"></i>Complain Box</a></li>
+					<li><a href="/chatBox"><i class="fas fa-envelope"></i>Chatbox</a></li>
 
 
 				</ul>
