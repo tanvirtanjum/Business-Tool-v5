@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Http;
+use http\Client;
+use GuzzleHttp\Psr7;
 
+use Validator;
 class DeliverymanDashController extends Controller
 {
 
