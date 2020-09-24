@@ -18,14 +18,28 @@
                     <th>Order#</th>
                     <th>Date</th>
                     <th>Ship to</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
                     <th>Order Total</th>
                     <th>Status</th>
                     <th> </th>
                     <th> </th>
                 </tr>
             </thead>
-            <tbody>
-
+            <tbody id='tab'>
+              <?php $__currentLoopData = $table; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                  <td align='middle'><?php echo e($content->orderid); ?></td>
+                  <td align='middle'><?php echo e($content->ord_date); ?></td>
+                  <td align='middle'><?php echo e($content->orderby); ?></td>
+                  <td align='middle'><?php echo e($content->prodid); ?></td>
+                  <td align='middle'><?php echo e($content->quant); ?></td>
+                  <td align='middle'><?php echo e($content->ammout); ?></td>
+                  <td align='middle'>Pending Recieve</td>
+                  <td align='middle'><a href="<?php echo e(route('deliveryDash.pendingOrder.accept', [$content->orderid])); ?>">&#9989;</a></td>
+                  <td align='middle'><a href="<?php echo e(route('deliveryDash.pendingOrder.reject', [$content->orderid])); ?>">&#128683;</a></td>
+                </tr>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
     </div>

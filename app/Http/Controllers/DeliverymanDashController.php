@@ -21,6 +21,22 @@ class DeliverymanDashController extends Controller
 
     function viewPendingDelivery(Request $request)
     {
-      return view('DeliverymanDash.pendingDeliveryList.index');
+      $table = DB::table('orderlist')->where('deliveryby', $request->session()->get('LID'))->where('stat', '1')->orderBy('orderid', 'asc')->get();
+      return view('DeliverymanDash.pendingDeliveryList.index')->with('table', $table);
+    }
+
+    function acceptPendingOrder(Request $request, $id)
+    {
+      DB::table('orderlist')->where('orderid','=',$id)->where('deliveryby', $request->session()->get('LID'))->where('stat', '1')->update(['stat' => '2']);
+      //DB::table('customer')->where('cusid','=',$id)->update(['status' => '1']);
+
+    	return redirect()->route('deliveryDash.pendingOrder');
+    }
+
+    function rejectPendingOrder(Request $request, $id)
+    {
+      DB::table('orderlist')->where('orderid','=',$id)->where('deliveryby', $request->session()->get('LID'))->where('stat', '1')->delete();
+
+    	return redirect()->route('deliveryDash.pendingOrder');
     }
 }

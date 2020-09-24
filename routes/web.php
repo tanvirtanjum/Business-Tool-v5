@@ -104,6 +104,9 @@ Route::middleware(['SESS'])->group(function()
     {
       Route::get('/deliverymanDash', 'DeliverymanDashController@index')->name('deliveryDash.index');
       Route::get('/deliverymanDash/PendingDeliveryList', 'DeliverymanDashController@viewPendingDelivery')->name('deliveryDash.pendingOrder');
+
+      Route::get('/deliverymanDash/PendingDeliveryList/Accept/{id}', 'DeliverymanDashController@acceptPendingOrder')->name('deliveryDash.pendingOrder.accept');
+      Route::get('/deliverymanDash/PendingDeliveryList/Reject/{id}', 'DeliverymanDashController@rejectPendingOrder')->name('deliveryDash.pendingOrder.reject');
     });
 
     //CUSTOMER Session Validation Required (DONE)
