@@ -1,5 +1,5 @@
 <!-- sidebar Included -->
-
+@include('customerDash.common')
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,13 +13,28 @@
         <h1>Order Products</h1>
         <hr>
           <div class="cart" style="margin-left: 25px;">
+          <table>
+            <thead>
             <tr>
-              <p>Product ID. </p>
-              <p>Product Name: </p>
-              <p>Available Quantity:</p>
-              <p>Price: </p>
-              <p>Type: </p>
+              <th>Product ID. </th>
+              <th>Product Name: </th>
+              <th>Available Quantity:</th>
+              <th>Price: </th>
+              <th>Type: </th>
             </tr>
+            </thead>
+            <tbody>
+                @for($i=0; $i != count($info); $i++)
+            <tr>
+              <td>{{$info[$i]->PID}}</td>
+              <td>{{$info[$i]->P_NAME}}</td>
+              <td>{{$info[$i]->AVAILABILITY}}</td>
+              <td>{{$info[$i]->SELL_PRICE}}</td>
+              <td>{{$info[$i]->TYPE}}</td>
+            </tr>
+            @endfor
+            </tbody>
+          </table>
           <hr>
               <a style="padding-left: 20px;" href=""><input type="submit" value="Buy"></a>
           </div>

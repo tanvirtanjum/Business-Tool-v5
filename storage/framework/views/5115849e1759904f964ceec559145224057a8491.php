@@ -1,6 +1,5 @@
 <!-- sidebar Included -->
-
-
+<?php echo $__env->make('customerDash.common', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,13 +13,28 @@
         <h1>Order Products</h1>
         <hr>
           <div class="cart" style="margin-left: 25px;">
+          <table>
+            <thead>
             <tr>
-              <p>Product ID. </p>
-              <p>Product Name: </p>
-              <p>Available Quantity:</p>
-              <p>Price: </p>
-              <p>Type: </p>
+              <th>Product ID. </th>
+              <th>Product Name: </th>
+              <th>Available Quantity:</th>
+              <th>Price: </th>
+              <th>Type: </th>
             </tr>
+            </thead>
+            <tbody>
+                <?php for($i=0; $i != count($info); $i++): ?>
+            <tr>
+              <td><?php echo e($info[$i]->PID); ?></td>
+              <td><?php echo e($info[$i]->P_NAME); ?></td>
+              <td><?php echo e($info[$i]->AVAILABILITY); ?></td>
+              <td><?php echo e($info[$i]->SELL_PRICE); ?></td>
+              <td><?php echo e($info[$i]->TYPE); ?></td>
+            </tr>
+            <?php endfor; ?>
+            </tbody>
+          </table>
           <hr>
               <a style="padding-left: 20px;" href=""><input type="submit" value="Buy"></a>
           </div>

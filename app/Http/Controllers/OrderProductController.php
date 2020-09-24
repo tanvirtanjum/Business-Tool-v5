@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use http\Client;
+use GuzzleHttp\Psr7;
 
+use Validator;
 class OrderProductController extends CustomerDashController
 {
 
@@ -16,8 +20,9 @@ class OrderProductController extends CustomerDashController
     {
 
     }
-    function view(Request $name)
+    function view()
     {
-      return view('customerDash/orderProducts.index');
+        $info = DB::table('product')->get();
+        return view('customerDash.orderProducts.index')->with('info',$info);
     }
 }
