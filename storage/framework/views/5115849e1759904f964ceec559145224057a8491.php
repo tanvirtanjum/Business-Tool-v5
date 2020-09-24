@@ -14,27 +14,28 @@
         <hr>
           <div class="cart" style="margin-left: 25px;">
           <table>
-            <thead>
             <tr>
-              <th>Product ID. </th>
-              <th>Product Name: </th>
-              <th>Available Quantity:</th>
-              <th>Price: </th>
-              <th>Type: </th>
+              <th>Product ID </th>
+              <th>Product Name </th>
+              <th>Available Quantity</th>
+              <th>Price </th>
+              <th>Type </th>
             </tr>
-            </thead>
+          </table>
             <tbody>
                 <?php for($i=0; $i != count($info); $i++): ?>
+            <table>
             <tr>
-              <td><?php echo e($info[$i]->PID); ?></td>
+
+              <td><?php echo e($info[$i]->PID); ?>"></td>
               <td><?php echo e($info[$i]->P_NAME); ?></td>
               <td><?php echo e($info[$i]->AVAILABILITY); ?></td>
               <td><?php echo e($info[$i]->SELL_PRICE); ?></td>
               <td><?php echo e($info[$i]->TYPE); ?></td>
             </tr>
+          </table>
             <?php endfor; ?>
             </tbody>
-          </table>
           <hr>
               <a style="padding-left: 20px;" href=""><input type="submit" value="Buy"></a>
           </div>
