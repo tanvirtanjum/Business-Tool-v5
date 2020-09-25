@@ -38,8 +38,12 @@ class DeliverymanDashController extends Controller
 
     function rejectPendingOrder(Request $request, $id)
     {
+      //DB::table('orderlist')->where('orderid','=',$id)->where('deliveryby', $request->session()->get('LID'))->where('stat', '1')->delete();
+      $content = DB::table('orderlist')->where('orderid','=',$id)->get()->first();
+      $product = DB::table('product')->where('PID',$content->prodid)->get()->first();
+      $newQuant = $content->quant + $product->QUANTITY;
+      DB::table('product')->where('PID',$content->prodid)->update(['QUANTITY' => $newQuant]);
       DB::table('orderlist')->where('orderid','=',$id)->where('deliveryby', $request->session()->get('LID'))->where('stat', '1')->delete();
-
     	return redirect()->route('deliveryDash.pendingOrder');
     }
 
