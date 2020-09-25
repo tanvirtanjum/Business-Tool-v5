@@ -40,4 +40,10 @@ return [
         'redirect' => 'http://localhost:8000/test',
     ],
 
+    'twitter' => [
+        'client_id' => '362316081470669',
+        'client_secret' => '75ec99cb9c99bf5974eb01e78ae13211',
+        'redirect' => 'http://localhost:8000/test',
+    ],
+
 ];

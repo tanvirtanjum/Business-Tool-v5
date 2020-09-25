@@ -22,7 +22,7 @@
             padding:9px 23px;
             text-decoration:none;
             text-shadow:0px 1px 0px #263666;
-            margin-left: 30%; 
+            margin-left: 30%;
         }
         .myButton:hover {
             background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
@@ -39,7 +39,7 @@
 	<div class="wrap">
 		<h2>Social Media Sign Up</h2>
             <a class="myButton" href="/signup/socialMediaSignup/fbsub">Facebook</a><br><br>
-            <a style="margin-left: 34%" class="myButton" href="">Twitter</a>
+            <a style="margin-left: 34%" class="myButton" href="/signup/socialMediaSignup/fbsub">Twitter</a>
 			<p><b>Or Log In <a href="{{route('login.index')}}">here</a></b></p>
 	</div>
 </body>
