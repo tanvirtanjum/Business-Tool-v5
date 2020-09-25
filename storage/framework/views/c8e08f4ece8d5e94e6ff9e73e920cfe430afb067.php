@@ -9,10 +9,16 @@
     <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">-->
     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/common.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(URL::to('css/history.css')); ?>">
+    <script src="<?php echo e(URL::to('js/printSalesHistory.js')); ?>"></script>
+    <script src="<?php echo e(URL::to('js/excelPrint.js')); ?>"></script>
+    <script src="<?php echo e(URL::to('js/jquery.js')); ?>"></script>
     <title>Delivery Records</title>
 </head>
   <body>
+
     <div align="center" class="table">
+      <input style="margin-top: 5px;margin-left: 1$ipx;" name="PRINT" id="PRINT" onclick="savePDF()" type="submit" value="Export PDF">
+      <input style="margin-top: 5px;margin-left: 1$ipx;" type="submit" name="excel" onclick="exportToExcel('tblexportData', 'user-data')" value="Export Excel">
             <table class="content-table">
                 <thead>
                     <tr>

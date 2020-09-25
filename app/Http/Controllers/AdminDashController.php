@@ -285,6 +285,16 @@ class AdminDashController extends Controller
       return redirect()->route('adminDash.prodManageAdmin.index');
     }
 
+    if($request->PRINT)
+    {
+      return redirect()->route('adminDash.prodManageAdmin.index');
+    }
+
+    if($request->excel)
+    {
+      return redirect()->route('adminDash.prodManageAdmin.index');
+    }
+
     if($request->INSERT)
     {
       $validate = Validator:: make($request->all(),[

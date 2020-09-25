@@ -9,9 +9,13 @@
     <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">-->
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/history.css') }}">
+    <script src="{{ URL::to('js/printSalesHistory.js') }}"></script>
+    <script src="{{ URL::to('js/excelPrint.js') }}"></script>
+    <script src="{{ URL::to('js/jquery.js') }}"></script>
     <title>Delivery Records</title>
 </head>
   <body>
+
     <div align="center" class="table">
             <table class="content-table">
                 <thead>

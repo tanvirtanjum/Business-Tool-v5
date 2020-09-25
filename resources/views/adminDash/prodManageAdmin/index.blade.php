@@ -10,15 +10,20 @@
     <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">-->
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/common.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/manage.css') }}">
+    <script src="{{ URL::to('js/printSalesHistory.js') }}"></script>
+    <script src="{{ URL::to('js/excelPrint.js') }}"></script>
+    <script src="{{ URL::to('js/jquery.js') }}"></script>
 
 </head>
 <body>
     <div class="box">
             <form method="POST">
                 <span style='color:red;'>{{Session::get('dbERR')}}</span>
-                <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
+                <input style="width: 15%; margin-left: 330px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
                 <span style='color: red;'> {!! html_entity_decode(Session::get('srchERR'), ENT_QUOTES, 'UTF-8') !!} </span>
                 <input id="btnSearch"type="submit" name="SEARCH" value="Search">
+                <input type="submit" name="PRINT" id="PRINT" onclick="savePDF()" value="Export PDF">
+                <input type="submit" name="excel" onclick="exportToExcel('tblexportData', 'user-data')" value="Export Excel">
 
                 <p>Product ID</p>
                 <input type="text" name="proId" placeholder="Enter Product Id" value="{{Session::get('a')}}" {{Session::get('iFLD')}}>
@@ -54,8 +59,8 @@
             </form>
 
 
-        <div align="right" class="table">
-            <table class="content-table">
+        <div align="right" class="table" id="table">
+            <table class="content-table" id="tblexportData">
                 <thead>
                     <tr>
                         <th>ID</th>
