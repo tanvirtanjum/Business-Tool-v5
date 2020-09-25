@@ -27,7 +27,7 @@
             <table>
             <tr>
 
-              <td><?php echo e($info[$i]->PID); ?>"></td>
+              <td><input type="checkbox" value=""> <?php echo e($info[$i]->PID); ?></td>
               <td><?php echo e($info[$i]->P_NAME); ?></td>
               <td><?php echo e($info[$i]->AVAILABILITY); ?></td>
               <td><?php echo e($info[$i]->SELL_PRICE); ?></td>

@@ -27,7 +27,7 @@
             <table>
             <tr>
 
-              <td>{{$info[$i]->PID}}"</td>
+              <td><input type="checkbox" value=""> {{$info[$i]->PID}}</td>
               <td>{{$info[$i]->P_NAME}}</td>
               <td>{{$info[$i]->AVAILABILITY}}</td>
               <td>{{$info[$i]->SELL_PRICE}}</td>

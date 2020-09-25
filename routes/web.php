@@ -129,6 +129,7 @@ Route::middleware(['SESS'])->group(function()
 
       //Route::get('/customerDash/recievedRecords', 'RecievedRecordController@view')->name('customerDash.recievedRecords.index');
       //Route::post('/customerDash/recievedRecords', 'RecievedRecordController@action');
+
     });
 
     //COMMON(ADMIN,MANAGER,SALESMAN) Session Validation Required (DONE)
