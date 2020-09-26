@@ -66,11 +66,6 @@ class SocialMediaSignupController extends Controller
         $data= DB::table('customer')->insert(['cusid'=>$userID,'name'=>$fullname,
                'design'=>$design,'email'=>$email,'mobile'=>'','status'=>$SID]);
 
-
-        $info = DB::table('log_in')->insert(['LID'=>$userID,'SID'=>$SID,'PASS'=>$pass]);
-
-        $data= DB::table('customer')->insert(['cusid'=>$userID,'name'=>$fullname,'design'=>$design,'email'=>$email,'mobile'=>'','status'=>$SID]);
-
         DB::table('profile_image')->insert([['UID' => $userID, 'IMAGE' => 'BT_Default_avatar_011211.png']]);
 
     }
